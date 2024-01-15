@@ -58,8 +58,8 @@
                 </div>
                 <!-- Companies -->
 
-                  <!-- Profile -->
-                  <div class="col-md-3 order-md-3 col-profile" style="margin-bottom: 24px;">
+                <!-- Profile -->
+                <div class="col-md-3 order-md-3 col-profile" style="margin-bottom: 24px;">
                     <div class="card card-profile-index">
                         <div class="card-header card-company-info-footer">
                             <ul class="nav nav-pills nav-justified" id="myTab" role="tablist">
@@ -72,11 +72,11 @@
                                 </li>
                             </ul>
                         </div>
-                       
+
                         <div class="card-body">
                             <div class="tab-content">
-                                
-                            <div class="tab-pane fade show active" id="one">
+                                <!-- Login -->
+                                <div class="tab-pane fade show active" id="one">
                                     <form class="form" role="form" id="loginForm">
                                         <div class="form-group">
                                             <input id="usernameInput" placeholder="Username" class="form-control form-control-sm" type="text" required="">
@@ -91,53 +91,16 @@
                                             <small><a href="#">Forgot password?</a></small>
                                         </div>
                                     </form>
-                                    
                                     <div id="errorMessage" style="display: none; color: red;">
-		                                Incorrect username or password.
-	                                </div>
-	
-	                                <div id="APIerrorMessage" style="display: none; color: red;">
-		                                An unexpected error occured! Try again later.
-	                                </div>
-
+                                        Incorrect username or password.
+                                    </div>
+                                    <div id="APIerrorMessage" style="display: none; color: red;">
+                                        An unexpected error occured! Try again later.
+                                    </div>
                                 </div>
+                                <!-- Login -->
 
-    <script>
-        function SignIn() {
-			var username = document.getElementById("usernameInput").value;
-			var password = document.getElementById("passwordInput").value;
-
-			var data = {
-                "username": username,
-                "password": password
-            };
-			
-			document.getElementById("loginForm").reset();
-
-            fetch('https://localhost:7040/api/Account/Login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                if (data == 0) {
-					document.getElementById("errorMessage").style.display = "block";
-				} else {
-					document.getElementById("errorMessage").style.display = "none";
-					setAuthkey(data, "homepage.php");
-				}
-            })
-            .catch((error) => {
-                document.getElementById("APIerrorMessage").style.display = "block";
-            });
-        }
-    </script>
-
-
+                                <!-- Register -->
                                 <div class="tab-pane fade" id="two">
                                     <form class="form" role="form" id="registerForm">
                                         <div class="form-group">
@@ -154,47 +117,7 @@
                                         </div>
                                     </form>
                                 </div>
-
-    <script>
-        function Register() {
-			var username = document.getElementById("registerUsername").value;
-			var email = document.getElementById("registerEmailInput").value;
-			var password = document.getElementById("registerPassword").value;
-
-			var data = {
-                "email": email,
-                "username": username,
-                "password": password
-            };
-			
-			document.getElementById("registerForm").reset();
-
-            fetch('https://localhost:7040/api/Account/CreateAccount', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                if (data == 0) {
-					document.getElementById("errorMessage").style.display = "block";
-				} else {
-					document.getElementById("errorMessage").style.display = "none";
-					setAuthkey(data, "homepage.php");
-				}
-            })
-            .catch((error) => {
-                document.getElementById("APIerrorMessage").style.display = "block";
-            });
-        }
-    </script>
-
-
-
-
+                                <!-- Register -->
                             </div>
                         </div>
                     </div>
