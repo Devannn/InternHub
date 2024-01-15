@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="functions.js"></script>
+    <style>
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+			max-width: 100%; /* Set your desired maximum width */
+			max-height: 400px; /* Set your desired maximum height */
+			overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .message {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 70%;
+        }
+
+        .sender {
+            background-color: #e0f7fa; 
+            align-self: flex-end;
+        }
+
+        .receiver {
+            background-color: #ffccbc; 
+            align-self: flex-start;
+        }
+		
+		.message {word-wrap: break-word !important;}
+		
+		input{
+			width: 90%;
+			margin: 20px 0px 0px 0px;
+		}
+    </style>
+</head>
+<body onload="getCookie()">
+
+	<span id="username"></span>
+    <div id="chat-container"></div>
+	<input type="text" id="messageInput" placeholder="Type your message">
+	<button onclick="sendMessage()">Send</button>
+
+
+    <script>
+		var receiverId = getParameterByName('i');	
+		if (receiverId == "1") {
+			receiverId = "userkey1";
+		} else if (receiverId == "2") {
+			receiverId = "userkey2";
+		}
+					
+		document.getElementById('username').innerHTML = '<div>' + receiverId + '</div>';
+
+	
+        const socket = new WebSocket("ws://localhost:5000/ws");
+        var authKey; 
+        const chatContainer = document.getElementById("chat-container"); 
+
+        socket.addEventListener("open", (event) => {
+            console.log("WebSocket connection opened");
+            retrieveData();
+        });
+
+        socket.addEventListener("message", (event) => {
+		console.log("Received from server: ", event.data);
+
+			try {
+				const data = JSON.parse(event.data);
+				
+				if (data.hasOwnProperty("Sender") && data.hasOwnProperty("Receiver") && data.hasOwnProperty("Message") && data.hasOwnProperty("Datetime")) {
+					//check with db what key connects to what userid
+					if (authKey == "userkey1") {
+						check = "1";
+					} else if (authKey == "userkey2") {
+						check = "2";
+					}
+				
+					// Determine if the sender should be on the right side
+					let sendRightSide = false;
+					if (check == data.Sender) {
+						sendRightSide = true;
+					}
+
+					const messageDiv = document.createElement("div");
+					messageDiv.classList.add("message");
+
+					if (sendRightSide) {
+						messageDiv.classList.add("sender");
+					} else {
+						// Use your existing logic for left side
+						messageDiv.classList.add("receiver");
+					}
+										
+
+					const date = new Date(data.Datetime);
+
+					const hours = String(date.getHours()).padStart(2, '0');
+					const minutes = String(date.getMinutes()).padStart(2, '0');
+
+					const formattedTime = `${hours}:${minutes}`;
+
+					messageDiv.textContent = `${data.Message} ${formattedTime}`;
+					chatContainer.appendChild(messageDiv);
+
+					// Scroll to the bottom to show the latest message
+					chatContainer.scrollTop = chatContainer.scrollHeight;
+				} else {
+					console.log("Skipping non-chat message:", event.data);
+				}
+			} catch (error) {
+				console.error("Error parsing JSON:", error);
+			}
+		});
+
+        socket.addEventListener("close", (event) => {
+            console.log("WebSocket connection closed");
+        });
+
+        function getCookie() {
+			checkAuthkey();
+            // Read the value of the specified cookie
+            authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+            // Log the value (you can remove this in production)
+            console.log('Value of authkey cookie:', authKey);
+        }
+
+        // Function to send a message to the WebSocket server
+        function sendMessage() {
+			const messageInput = document.getElementById('messageInput');
+			const message = messageInput.value;
+
+			// Prompt the user for the receiver information
+			var receiverId = getParameterByName('i');
+
+			if (authKey !== undefined && receiverId !== null && message.trim() !== '') {
+				const data = {
+					sender: authKey,  
+					receiver: parseInt(receiverId),  
+					message: message
+				};
+
+				if (socket.readyState === WebSocket.OPEN) {
+					socket.send(JSON.stringify(data));
+					console.log(JSON.stringify(data));
+
+					// Clear the input field
+					messageInput.value = '';
+				} else {
+					console.error('WebSocket is not in the OPEN state.');
+				}
+			}
+		}
+
+        function retrieveData() {
+
+			if (authKey == "userkey1"){
+				var receiverID = 2;
+			}
+			if (authKey == "userkey2"){
+				var receiverID = 1;
+			}
+
+            if (authKey !== undefined && receiverID !== undefined) {
+                const data = {
+                    sender: authKey,  
+                    receiver: parseInt(receiverID), 
+                    data: "retrieve_data"
+                };
+
+                socket.send(JSON.stringify(data));
+				console.log(JSON.stringify(data));
+
+                // Clear the input field
+                messageInput.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

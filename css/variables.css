@@ -1,0 +1,33 @@
+:root {
+    /* ===== Colors ===== */
+    --background-color: #1A434C !important;
+    --primary-color: #1A434C !important;
+    --text-white: #FFFFFF !important;
+    --text-black: #000000 !important;
+    --background-white: #FFFFFF !important;
+    --background-black: #000000 !important;
+
+    /* --body-color: #E4E9F7 !important;
+    --sidebar-color: #FFF !important;
+    --primary-color: #1A434C !important;
+    --primary-color-light: #F6F5FF !important;
+    --background-color: #1A434C !important;
+    --toggle-color: #DDD !important;
+    --text-color: black !important;
+    --text-color: #707070 !important; */
+
+    --bs-primary: black !important;
+    --bs-secondary: #6c757d;
+    --bs-success: #198754;
+    --bs-info: #0dcaf0;
+    --bs-warning: #ffc107;
+    --bs-danger: #dc3545;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}

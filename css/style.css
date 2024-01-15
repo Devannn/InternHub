@@ -1,0 +1,412 @@
+.btn-primary {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    opacity: 75%;
+}
+
+.card {
+    margin-bottom: 12px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-radius: 10px 10px 0px 0px !important;
+}
+
+.card-footer {
+    background-color: #fff;
+    border-radius: 0px 0px 10px 10px !important;
+}
+
+.fa-star {
+    color: rgb(231, 231, 231);
+}
+
+.checked {
+    color: var(--primary-color);
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.card-profile {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 100px;
+    padding: 10px;
+}
+
+.profile-image img {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+
+.tag-profile {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Category (Homepage) */
+.card-category {
+    text-align: center;
+}
+
+.col-category {
+    margin-bottom: 10px;
+}
+
+
+.category-image img {
+    width: 50px;
+    height: 50px;
+}
+
+.category-image {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.category-text {
+    text-align: center;
+}
+
+/* Category (Homepage) */
+
+/* Profile (Homepage) */
+
+@media (max-width: 576px) {
+    .col-profile {
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 576px) {
+    .scrolling-row {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .scrolling-row .col {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+
+.profile-homepage-background-image {
+    border-radius: 10px 10px 0px 0px;
+    background-image: url('/InternHub/img/rocs.jpeg');
+    height: 60px;
+    margin-bottom: 50px;
+    background-color: var(--primary-color);
+}
+
+.profile-homepage-pfp {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.profile-homepage-pfp img {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    margin-left: 35%;
+    border: 2px solid white;
+}
+
+.upper {
+    height: 100px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.upper img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.user {
+    position: relative;
+}
+
+.profile img {
+    height: 70px;
+    width: 70px;
+    margin-top:2px;
+}
+
+.profile {
+    position: absolute;
+    top: -70px;
+    left: 34%;
+    height: 80px;
+    width: 80px;
+    border:2px solid #fff;
+    border-radius: 50%;
+}
+
+/* Profile (Homepage) */
+
+.horizontal-scrollable>.row {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.horizontal-scrollable>.row>.col-xs-4 {
+    display: inline-block;
+    float: none;
+}
+
+/* Decorations */
+
+.col-xs-4 {
+    color: white;
+    font-size: 24px;
+    padding-bottom: 20px;
+    padding-top: 18px;
+}
+
+.col-xs-4:nth-child(2n+1) {
+    background: green;
+}
+
+.col-xs-4:nth-child(2n+2) {
+    background: black;
+}
+
+/* Companies (Homepage) */
+
+.col-companies {
+    margin-bottom: 24px;
+    max-height: 85vh;
+}
+
+.col-companies::-webkit-scrollbar {
+    width: 0px; /* Set the width of the scrollbar */
+}
+
+.card {
+    border: 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+}
+
+.companies-card a:hover{
+    color: var(--text-black);
+    text-decoration: none;
+}
+
+.companies-image {
+    width: 50px;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    /* background-color: var(--background-white); */
+}
+
+.companies-image img {
+    width: 40px;
+    height: 40px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.companies-text-right {
+    text-align: right;
+}
+
+.tag {
+    border: 1.5px solid var(--text-black);
+    background-color: rgb(26, 67, 76);
+    color: var(--text-white);
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.col-text-small {
+    font-size: 10px;
+    padding-right: -420px;
+}
+
+.rating {
+    float: left;
+}
+
+.rating-text-small {
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 1px;
+    opacity: 0.8;
+}
+
+.star-icon {
+    height: 15px;
+    width: 15px;
+    margin-top: -5px;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.rating .rating-star {
+    padding: 0px 3px;
+}
+
+.rating .fa-star {
+   color: var(--text-black);
+}
+
+.company-link {
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+/* Companies (Homepage) */
+
+/* Messages  */
+
+.card-message-list a{
+    color: var(--text-black);
+    text-decoration: none;
+}
+
+.card-message-list a:hover{
+    color: var(--text-black);
+    text-decoration: none;
+}
+
+.message-list-image {
+    width: 46px;
+    height: 46px;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.message-list-image img {
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+    margin-left: 3px;
+    border-radius: 50%;
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    max-width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.message {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+}
+
+.sender {
+    background-color: #e0f7fa;
+    align-self: flex-end;
+}
+
+.receiver {
+    background-color: #ffccbc;
+    align-self: flex-start;
+}
+
+.message {
+    word-wrap: break-word !important;
+}
+
+/* Messages End */
+
+/* Company */
+
+.company-background-image {
+    border-radius: 10px 10px 0px 0px;
+    background-image: url('/InternHub/img/roc.jpeg');
+    height: 200px;
+    margin-bottom: 50px;
+    background-color: var(--primary-color);
+}
+
+.company-logo {
+    border-radius: 1000px;
+    height: 150px;
+    width: 150px;
+    border: 20px solid white;
+    background-color: white;
+    margin-left: 50px;
+    margin-top: 110px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.company-logo img {
+    width: 140px;
+    height: 140px;
+    margin-left: -15px;
+    margin-top: -15px;
+    border-radius: 50%;
+}
+
+.card-company-info-footer .nav-link.active {
+    background-color: var(--primary-color);
+}
+
+.btn-assignment-link {
+font-size: 10px;
+}
+
+/* Company End */
+
+/* Review */
+
+.review {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+}
+
+.rating-box .stars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stars i {
+    color: #e6e6e6;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.stars i.active {
+    color: #ff9c1a;
+    color: var(--primary-color);
+}
+
+/* Review End */
