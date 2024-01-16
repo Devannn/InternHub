@@ -14,7 +14,8 @@
             </div>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="profile.php">Logout</a>
             </ul>
         </div>
     </div>
