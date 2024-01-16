@@ -50,51 +50,8 @@ include 'inc/getAuthKey.php';
                 <!-- Categories -->
 
                 <!-- Companies -->
-                <div class="col-md-6 order-md-2 overflow-auto col-companies">
-                    <div class="card companies-card">
-                        <div class="card-body">
-                            <a href="company.php" class="company-link">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <div class="companies-image">
-                                            <img src="img/pfp/roc-logo.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col text-bold">Roc Ter AA</div>
-                                            <div class="col text-bold d-flex justify-content-end">Noord-Brabant</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">Web Developer</div>
-                                            <div class="col d-flex justify-content-end">
-                                                <div class="rating">
-                                                    <div class="rating rating-text">3,7</div>
-                                                    <div class="rating rating-star">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-5px;" />
-                                                    </div>
-                                                    <div class="rating rating-text-small">(4)</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <div class="py-2"></div>
-                            <div class="row flex-nowrap overflow-auto">
-                                <div class="tag d-inline-block">Laravel</div>
-                                <div class="tag d-inline-block">Vue.JS</div>
-                                <div class="tag d-inline-block">Bootstrap</div>
-                                <div class="tag d-inline-block">Next.JS</div>
-                                <div class="tag d-inline-block">React</div>
-                                <div class="tag d-inline-block">Laravel</div>
-                            </div>
-                            <div class="companies-text-right col-text-small">
-                                18-12-2023
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-6 order-md-2 overflow-auto col-companies" id="companies-container">
+                    <!-- Companies will be dynamically added here -->
                 </div>
                 <!-- Companies -->
 
@@ -127,6 +84,52 @@ include 'inc/getAuthKey.php';
             </div>
         </div>
     </div>
+    <script>
+        // JSON data from the API
+        var jsonData = [{
+            "Company_ID": 1,
+            "Company_Name": "Test company 1",
+            "Company_Province": null,
+            "Company_Rating": 0.0,
+            "Company_ReviewCount": 0,
+            "Company_LogoFilePath": null,
+            "Company_Categories": [{
+                "Category_ID": 1,
+                "Category_Name": "test1"
+            }],
+            "Company_Tags": [{
+                "Tag_ID": 1,
+                "Tag_Name": "test1"
+            }, {
+                "Tag_ID": 2,
+                "Tag_Name": "test2"
+            }]
+        }, {
+            "Company_ID": 3,
+            "Company_Name": "Test company 3",
+            "Company_Province": null,
+            "Company_Rating": 0.0,
+            "Company_ReviewCount": 0,
+            "Company_LogoFilePath": null,
+            "Company_Categories": [{
+                "Category_ID": 1,
+                "Category_Name": "test1"
+            }],
+            "Company_Tags": [{
+                "Tag_ID": 1,
+                "Tag_Name": "test1"
+            }, {
+                "Tag_ID": 2,
+                "Tag_Name": "test2"
+            }]
+        }];
+
+        // Populate companies-container with HTML using the function from functions.js
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCompanyHTML(jsonData);
+        });
+    </script>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

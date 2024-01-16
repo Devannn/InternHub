@@ -1,9 +1,9 @@
-function APIaddress(){
-	return "https://localhost:7040/api/";
+function APIaddress() {
+    return "https://localhost:7040/api/";
 }
 
-function WSaddress(){
-	return "ws://localhost:5000/ws";
+function WSaddress() {
+    return "ws://localhost:5000/ws";
 }
 
 function setAuthkey(authkey, href) {
@@ -24,35 +24,35 @@ function initialize() {
 }
 
 function AcknowledgeWebsocket() {
-	if (authKey !== undefined) {
-		const data = {
-			sender: authKey,  
-		};
+    if (authKey !== undefined) {
+        const data = {
+            sender: authKey,
+        };
 
-		socket.send(JSON.stringify(data));
-		console.log(JSON.stringify(data));
-		
-		messageInput.value = '';
-	}	
-}					
+        socket.send(JSON.stringify(data));
+        console.log(JSON.stringify(data));
+
+        messageInput.value = '';
+    }
+}
 
 function GetAuthKey() {
     var authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
     if (authKey.trim() === "") {
-        window.location.href = "index.html";
-        return; 
+        window.location.href = "index.php";
+        return;
     }
 
-	return authKey;
+    return authKey;
 }
 
-function GetUserID(authKey){
-	if (authKey == "userkey1"){
-		return 1;
-	} else if (authKey == "userkey2"){
-		return 2;
-	}
+function GetUserID(authKey) {
+    if (authKey == "userkey1") {
+        return 1;
+    } else if (authKey == "userkey2") {
+        return 2;
+    }
 }
 
 function getParameterByName(name, url) {
@@ -71,7 +71,7 @@ function redirectToURL(id) {
     var finalURL = url + '?' + parameter;
 
     window.location.href = finalURL;
-}		
+}
 
 async function getUserIdFromAuthKey(authKey) {
     const apiUrl = `https://localhost:7040/api/User/GetUserIdFromAuthkey?auth_key=${authKey}`;
@@ -82,7 +82,7 @@ async function getUserIdFromAuthKey(authKey) {
         return userId;
     } catch (error) {
         console.error('Error fetching user ID:', error);
-        return 0; 
+        return 0;
     }
 }
 
@@ -95,7 +95,81 @@ async function getDisplayNameFromUserID(authKey, userID) {
         return username;
     } catch (error) {
         console.error('Error fetching username:', error);
-        return ''; 
-	}
+        return '';
+    }
 }
 
+// Homepage
+
+// (async function () {
+//     try {
+//         const authKey = GetAuthKey();
+//         const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
+//         document.getElementById('receiver').innerHTML = '<h2 style="text-align: center;">' + receiverName + '</h2>';
+//     } catch (error) {
+//         console.error('Error updating receiver:', error);
+//     }
+// })();
+
+// async function getDisplayNameFromUserID(authKey, userID) {
+//     const apiUrl = 'https://localhost:7040/api/User/GetDisplayNameFromUserID?auth_key=${authKey}&user_id=${userID}';
+
+//     try {
+//         const response = await fetch(apiUrl);
+//         const username = await response.text();
+//         return username;
+//     } catch (error) {
+//         console.error('Error fetching username:', error);
+//         return '';
+//     }
+// }
+
+// Function to create HTML for each company
+function createCompanyHTML(company) {
+    return `
+    <div class="card companies-card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-2">
+                    <div class="companies-image">
+                        <img src="${company.Company_LogoFilePath || 'img/pfp/default.png'}" alt="${company.Company_Name}">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col text-bold">${company.Company_Name}</div>
+                        <div class="col text-bold d-flex justify-content-end">${company.Company_Province || 'N/A'}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">${company.Company_Categories.map(category => category.Category_Name).join(', ')}</div>
+                        <div class="col d-flex justify-content-end">
+                            <div class="rating">
+                                <div class="rating rating-text">${company.Company_Rating.toFixed(1)}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-2"></div>
+            <div class="row flex-nowrap overflow-auto">
+                ${company.Company_Tags.map(tag => `<div class="tag d-inline-block">${tag.Tag_Name}</div>`).join('')}
+            </div>
+            <div class="companies-text-right col-text-small">
+                ${new Date().toLocaleDateString()}
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+// Function to generate HTML for all companies
+function generateCompanyHTML(data) {
+    var companiesContainer = document.getElementById('companies-container');
+    data.forEach(company => {
+        companiesContainer.innerHTML += createCompanyHTML(company);
+    });
+}
+
+
+
+// Homepage
