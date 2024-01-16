@@ -15,12 +15,8 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <form class="form" role="form" id="loginForm">
-                    <div class="form-group">
-                        <button type="submit" onclick="SignIn()" class="btn btn-primary btn-block">Login</button>
-                    </div>
-                </form>
-                <a class="nav-item nav-link" href="logout.php">Logout</a>
+                <a class="nav-item nav-link" href="logout.php">Logout1</a>
+                <a href="#" onclick="logout()">Logout</a>
             </ul>
         </div>
     </div>
