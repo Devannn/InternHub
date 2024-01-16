@@ -18,7 +18,7 @@
     <title>InternHub</title>
 </head>
 
-<body onload="getCookie()">
+<body>
     <div id="app">
         <?php include 'inc/nav-index.php' ?>
         <div class="container">
