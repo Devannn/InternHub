@@ -40,8 +40,6 @@ include 'inc/getAuthKey.php';
                         </div>
                     </div>
                     <!-- Main -->
-
-                    <!--  -->
                 </div>
                 <div class="col-md-4 order-md-2">
                     <div class="tab-content">

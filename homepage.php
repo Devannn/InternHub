@@ -102,7 +102,8 @@ include 'inc/getAuthKey.php';
                 <div class="col-md-3 order-md-3 col-profile" style="margin-bottom: 24px;">
                     <div class="card card-profile-homepage">
                         <div class="upper">
-                            <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid">
+                            <div class="img-fluid" style="background-color: var(--primary-color); border-radius: 10px 10px 0px 0px; height:60px;">
+                            </div>
                         </div>
                         <div class="user text-center">
                             <div class="profile">
