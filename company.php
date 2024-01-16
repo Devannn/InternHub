@@ -29,7 +29,7 @@ include 'inc/getAuthKey.php';
                     <div class="card card-company-info">
                         <div class="card-image company-background-image">
                             <div class="card-image company-logo">
-                                <img src="img/roc-logo.png" alt="">
+                                <img src="img/pfp/roc-logo.png" alt="">
                             </div>
                         </div>
                         <div class="card-body">

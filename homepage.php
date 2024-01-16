@@ -57,7 +57,7 @@ include 'inc/getAuthKey.php';
                                 <div class="row">
                                     <div class="col-2">
                                         <div class="companies-image">
-                                            <img src="/InternHub/img/roc-logo.png" alt="">
+                                            <img src="img/pfp/roc-logo.png" alt="">
                                         </div>
                                     </div>
                                     <div class="col">
@@ -107,12 +107,19 @@ include 'inc/getAuthKey.php';
                         </div>
                         <div class="user text-center">
                             <div class="profile">
-                                <img src="img/pfp.jpeg" class="rounded-circle" width="80">
+                                <img src="img/pfp/default.png" class="rounded-circle" width="80">
                             </div>
                         </div>
                         <div class="card-body">
                             <h6 class="text-center">Devan Janssen</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure animi blanditiis eius laudantium tempore numquam corporis delectus ipsam perferendis, quidem autem quas praesentium voluptates tempora dignissimos ab eligendi. Maiores, mollitia!</p>
+                            <p>
+                                Hi, I'm Devan Janssen!
+                                Exploring life's adventures, one day at a time.
+                                Passionate about Coding.
+                                Always learning, forever curious
+                                Creative soul with a love for Coding.
+                                Making memories and cherishing moments.
+                            </p>
                         </div>
                     </div>
                 </div>

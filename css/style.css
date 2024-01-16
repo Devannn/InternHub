@@ -348,7 +348,7 @@
 
 .company-background-image {
     border-radius: 10px 10px 0px 0px;
-    background-image: url('/InternHub/img/roc.jpeg');
+    background-image: url('/InternHub/img/banner/roc.jpeg');
     height: 200px;
     margin-bottom: 50px;
     background-color: var(--primary-color);
