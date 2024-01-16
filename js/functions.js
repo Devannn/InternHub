@@ -17,19 +17,14 @@ function checkAuthkey() {
     }
 }
 
-function setAuthKey() {
-    var authKey = document.getElementById("authKey").value;
+function setAuthkey(authkey, href) {
 
     var expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 1);
+    expirationDate.setTime(expirationDate.getTime() + 15 * 60 * 1000); // 15 minutes in milliseconds
 
-    document.cookie = "authkey=" + authKey + "; expires=" + expirationDate.toUTCString() + "; path=/";
+    document.cookie = "authkey=" + authkey + "; expires=" + expirationDate.toUTCString() + "; path=/";
 
-    //remove later
-    console.log("Authentication Key set to:", authKey);
-    console.log("Cookie set:", document.cookie);
-
-    window.location.href = "login2.php";
+    window.location.href = href;
 }
 
 function getParameterByName(name, url) {
