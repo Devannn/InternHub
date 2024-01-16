@@ -12,8 +12,6 @@ include 'inc/getAuthKey.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/7355024ecc.js" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
@@ -56,7 +54,11 @@ include 'inc/getAuthKey.php';
                                     </div>
                                     <div class="col-2 float-right">
                                         <div class="float-right">
-                                            <a href="edit-profile.php"><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <a href="edit-profile.php">
+                                                <button class="btn btn-primary">
+                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +102,11 @@ include 'inc/getAuthKey.php';
                                     </div>
                                     <div class="col-2 float-right">
                                         <div class="float-right">
-                                            <a href="add-internship.php"><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <a href="add-internship.php">
+                                                <button class="btn btn-primary">
+                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +123,11 @@ include 'inc/getAuthKey.php';
                                     </div>
                                     <div class="col-2 float-right">
                                         <div class="float-right">
-                                            <a href="add-assignment.php"><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></a>
+                                            <a href="add-assignment.php">
+                                                <button class="btn btn-primary">
+                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+                                                </button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
