@@ -15,8 +15,8 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="logout.php">Logout1</a>
-                <a href="#" onclick="logout()">Logout</a>
+                <a class="nav-item nav-link" href="logout.php">Logout</a>
+                <!-- <a href="#" onclick="logout()">Logout</a> -->
             </ul>
         </div>
     </div>

@@ -21,7 +21,7 @@ function logout() {
     document.cookie = "authkey=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // Redirect the user to the login page or any desired destination
-    window.location.href = "logout.php"; // Replace "logout.php" with your logout or login page
+    window.location.href = "index.php"; // Replace "logout.php" with your logout or login page
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
