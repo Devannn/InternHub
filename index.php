@@ -29,6 +29,7 @@ if (!empty($rawKey)) {
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script src="https://kit.fontawesome.com/7355024ecc.js" crossorigin="anonymous"></script>
 
     <title>InternHub</title>
 </head>
