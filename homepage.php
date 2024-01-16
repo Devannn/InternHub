@@ -72,6 +72,7 @@ include 'inc/getAuthKey.php';
                                                     <div class="rating rating-text">3,7</div>
                                                     <div class="rating rating-star">
                                                         <span class="fa fa-star checked"></span>
+                                                        <img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-5px;" />
                                                     </div>
                                                     <div class="rating rating-text-small">(4)</div>
                                                 </div>
