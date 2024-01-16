@@ -101,28 +101,28 @@ async function getDisplayNameFromUserID(authKey, userID) {
 
 // Homepage
 
-// (async function () {
-//     try {
-//         const authKey = GetAuthKey();
-//         const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
-//         document.getElementById('receiver').innerHTML = '<h2 style="text-align: center;">' + receiverName + '</h2>';
-//     } catch (error) {
-//         console.error('Error updating receiver:', error);
-//     }
-// })();
+(async function () {
+    try {
+        const authKey = GetAuthKey();
+        const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
+        document.getElementById('receiver').innerHTML = '<h2 style="text-align: center;">' + receiverName + '</h2>';
+    } catch (error) {
+        console.error('Error updating receiver:', error);
+    }
+})();
 
-// async function getDisplayNameFromUserID(authKey, userID) {
-//     const apiUrl = 'https://localhost:7040/api/User/GetDisplayNameFromUserID?auth_key=${authKey}&user_id=${userID}';
+async function getDisplayNameFromUserID(authKey, userID) {
+    const apiUrl = 'https://localhost:7040/api/User/GetDisplayNameFromUserID?auth_key=${authKey}&user_id=${userID}';
 
-//     try {
-//         const response = await fetch(apiUrl);
-//         const username = await response.text();
-//         return username;
-//     } catch (error) {
-//         console.error('Error fetching username:', error);
-//         return '';
-//     }
-// }
+    try {
+        const response = await fetch(apiUrl);
+        const username = await response.text();
+        return username;
+    } catch (error) {
+        console.error('Error fetching username:', error);
+        return '';
+    }
+}
 
 // Function to create HTML for each company
 function createCompanyHTML(company) {
