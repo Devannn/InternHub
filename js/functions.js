@@ -1,20 +1,9 @@
+function APIaddress(){
+	return "https://localhost:7040/api/";
+}
 
-function checkAuthkey() {
-    var authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-
-    if (authKey.trim() === "") {
-        window.location.href = "index.html";
-        return;
-    }
-
-    //check API/db
-    //send authkey
-    //true or false redirect
-    var api_return = true;
-    if (api_return == false) {
-        window.location.href = "index.html";
-        return;
-    }
+function WSaddress(){
+	return "ws://localhost:5000/ws";
 }
 
 function setAuthkey(authkey, href) {
@@ -25,6 +14,45 @@ function setAuthkey(authkey, href) {
     document.cookie = "authkey=" + authkey + "; expires=" + expirationDate.toUTCString() + "; path=/";
 
     window.location.href = href;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function initialize() {
+    GetAuthKey();
+    retrieveData(GetAuthKey(), getParameterByName('i'));
+}
+
+function AcknowledgeWebsocket() {
+	if (authKey !== undefined) {
+		const data = {
+			sender: authKey,  
+		};
+
+		socket.send(JSON.stringify(data));
+		console.log(JSON.stringify(data));
+		
+		messageInput.value = '';
+	}	
+}					
+
+function GetAuthKey() {
+    var authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+    if (authKey.trim() === "") {
+        window.location.href = "index.html";
+        return; 
+    }
+
+	return authKey;
+}
+
+function GetUserID(authKey){
+	if (authKey == "userkey1"){
+		return 1;
+	} else if (authKey == "userkey2"){
+		return 2;
+	}
 }
 
 function getParameterByName(name, url) {
@@ -38,26 +66,36 @@ function getParameterByName(name, url) {
 }
 
 function redirectToURL(id) {
-    var url = 'messages.php';
+    var url = 'socket.html';
     var parameter = 'i=' + id;
     var finalURL = url + '?' + parameter;
 
     window.location.href = finalURL;
+}		
+
+async function getUserIdFromAuthKey(authKey) {
+    const apiUrl = `https://localhost:7040/api/User/GetUserIdFromAuthkey?auth_key=${authKey}`;
+
+    try {
+        const response = await fetch(apiUrl);
+        const userId = await response.json();
+        return userId;
+    } catch (error) {
+        console.error('Error fetching user ID:', error);
+        return 0; 
+    }
 }
 
-// https://www.codingnepalweb.com/star-rating-html-css-javascript-2/
+async function getDisplayNameFromUserID(authKey, userID) {
+    const apiUrl = `https://localhost:7040/api/User/GetDisplayNameFromUserID?auth_key=${authKey}&user_id=${userID}`;
 
-// Select all elements with the "i" tag and store them in a NodeList called "stars"
-const stars = document.querySelectorAll(".stars i");
-// Loop through the "stars" NodeList
-stars.forEach((star, index1) => {
-    // Add an event listener that runs a function when the "click" event is triggered
-    star.addEventListener("click", () => {
-        // Loop through the "stars" NodeList Again
-        stars.forEach((star, index2) => {
-            // Add the "active" class to the clicked star and any stars with a lower index
-            // and remove the "active" class from any stars with a higher index
-            index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
-        });
-    });
-});
+    try {
+        const response = await fetch(apiUrl);
+        const username = await response.text();
+        return username;
+    } catch (error) {
+        console.error('Error fetching username:', error);
+        return ''; 
+	}
+}
+
