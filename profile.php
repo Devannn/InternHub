@@ -1,3 +1,6 @@
+<?php
+    include inc/getAuthKey();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
