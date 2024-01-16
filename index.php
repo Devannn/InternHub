@@ -1,6 +1,20 @@
-<?php
-include 'inc/getAuthKey.php';
+<?php 
+$authKey = isset($_COOKIE['authkey']) ? $_COOKIE['authkey'] : '';
+
+$rawKey = trim($authKey);
+
+if (!empty($rawKey)) {
+    $apiUrl = 'https://localhost:7040/api/Auth/IsAuthValid?authKey=' . urlencode($rawKey);
+    $apiResponse = file_get_contents($apiUrl);
+
+    if ($apiResponse === "true") {
+        header("Location: homepage.php");
+    }
+}
+
+    
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
