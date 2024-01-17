@@ -17,17 +17,33 @@ function getProfile() {
         });
 }
 
-// Function to update the HTML elements with profile data
 function updateProfileUI(profileData) {
-    // Assuming profileData is an object with properties like name, description, etc.
+    // Assuming profileData is an array of user profiles
 
-    // Update the name
-    document.getElementById('profileName').textContent = profileData.name;
+    // Assuming you want to display the first user's data
+    if (profileData.length > 0) {
+        var user = profileData[0];
 
-    document.getElementById('profileEmail').textContent = profileData.email;
+        // Update the name
+        document.getElementById('profileName').textContent = user.user_displayname || "No Name";
 
-    // Update the description
-    document.getElementById('profileDescription').textContent = profileData.description;
+        // Update the company ID
+        document.getElementById('profileCompanyId').textContent = user.user_company_id || "No Company ID";
 
-    // You can continue updating other elements as needed
+        // Update the email (cleaned from unexpected characters)
+        document.getElementById('profileEmail').textContent = cleanEmail(user.user_email) || "No Email";
+
+        // Update the picture
+        document.getElementById('profilePicture').src = user.user_picture || "default_picture_url";
+    } else {
+        console.log("No user profiles received");
+    }
 }
+
+// Function to clean email from unexpected characters
+function cleanEmail(email) {
+    // Implement cleaning logic as needed
+    // For example, removing square brackets and single quotes
+    return email.replace(/[\[\]']/g, '');
+}
+
