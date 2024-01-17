@@ -15,6 +15,7 @@ include 'inc/getAuthKey.php';
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/profile.js"></script>
 
     <title>InternHub</title>
 </head>
