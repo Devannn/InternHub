@@ -42,6 +42,13 @@ include 'inc/checkAuthKey.php';
                     </div>
                     <!-- Main -->
 
+                    <div class="card-body">
+                        <h2 id="profileName">Test 1</h2>
+                        <p id="profileDescription">
+                            nothing
+                        </p>
+                    </div>
+
                     <!-- Your Reviews -->
                     <div class="card card-company-info">
                         <div class="card-body">

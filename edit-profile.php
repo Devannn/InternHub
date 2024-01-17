@@ -93,13 +93,6 @@ include 'inc/checkAuthKey.php';
                         </div>
                     </div>
                     <!-- Tags -->
-
-                    <div class="card-body">
-                        <h2 id="profileName">Test 1</h2>
-                        <p id="profileDescription">
-                            nothing
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
