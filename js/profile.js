@@ -1,27 +1,18 @@
 function getProfile() {
-    var data = {
-        "authkey": getAuthKey(),
-    };
+    var authKey = GetAuthKey();
 
-    document.getElementById("loginForm").reset();
+    var apiUrl = APIaddress() + 'User/GetProfile?auth_key=' + encodeURIComponent(authKey);
 
-    fetch(APIaddress() + 'User/GetProfile', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
+    fetch(apiUrl)
         .then(response => response.text())
         .then(data => {
             if (data == 0) {
-                document.getElementById("errorMessage").style.display = "block";
+                console.log("0 received");
             } else {
-                document.getElementById("errorMessage").style.display = "none";
-                setAuthkey(data, 'profile.php');
+                console.log(data);
             }
         })
         .catch((error) => {
-            document.getElementById("APIerrorMessage").style.display = "block";
+            console.log("error");
         });
 }
