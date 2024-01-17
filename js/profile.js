@@ -1,24 +1,5 @@
 function getProfile() {
     var authKey = GetAuthKey();
-
-    var apiUrl = APIaddress() + 'User/GetProfile?auth_key=' + encodeURIComponent(authKey);
-
-    fetch(apiUrl)
-        .then(response => response.text())
-        .then(data => {
-            if (data == 0) {
-                console.log("0 received");
-            } else {
-                console.log(data);
-            }
-        })
-        .catch((error) => {
-            console.log("error");
-        });
-}
-
-function getProfile() {
-    var authKey = GetAuthKey();
     var apiUrl = APIaddress() + 'User/GetProfile?auth_key=' + encodeURIComponent(authKey);
 
     fetch(apiUrl)
@@ -26,7 +7,7 @@ function getProfile() {
         .then(data => {
             if (data.length > 0) {
                 // Update profile name
-                document.getElementById('profileName').innerText = data[0]['user displayname'];
+                document.getElementById('profileName').innerText = data[0]['user_displayname'] || 'No Display Name';
 
                 // Update profile email
                 document.getElementById('profileEmail').innerText = data[0]['user_email'];
