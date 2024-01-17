@@ -1,5 +1,5 @@
 <?php
-include 'inc/getAuthKey.php';
+include 'inc/checkAuthKey.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
