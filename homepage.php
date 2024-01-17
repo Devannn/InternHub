@@ -88,8 +88,8 @@ include 'inc/getAuthKey.php';
         // JSON data from the API
         var jsonData = [{
             "Company_ID": 1,
-            "Company_Name": "Test company 1",
-            "Company_Province": null,
+            "Company_Name": "Company 1",
+            "Company_Province": "Noord-Brabant",
             "Company_Rating": 0.0,
             "Company_ReviewCount": 0,
             "Company_LogoFilePath": null,
@@ -107,7 +107,7 @@ include 'inc/getAuthKey.php';
         }, {
             "Company_ID": 3,
             "Company_Name": "Test company 3",
-            "Company_Province": null,
+            "Company_Province": "Noord-Brabant",
             "Company_Rating": 0.0,
             "Company_ReviewCount": 0,
             "Company_LogoFilePath": null,

@@ -44,8 +44,8 @@ include 'inc/getAuthKey.php';
                                     <input id="profilePictureInput" type="file">
                                 </div>
                                 <div class="form-group">
-                                    <label for="coverImageInput" class="form-label">Cover Image</label>
-                                    <input id="coverImageInput" type="file">
+                                    <label for="resumeInput" class="form-label">Resume</label>
+                                    <input id="resumeInput" type="file">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
@@ -92,23 +92,6 @@ include 'inc/getAuthKey.php';
                         </div>
                     </div>
                     <!-- Tags -->
-
-                    <!-- Resume -->
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Upload Resume</h3>
-                            <form class="form" role="form" action="messages.php">
-                                <div class="form-group">
-                                    <label for="resumeInput" class="form-label">Resume</label>
-                                    <input id="resumeInput" type="file">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Resume -->
                 </div>
             </div>
         </div>
