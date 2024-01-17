@@ -10,9 +10,6 @@ function getProfile() {
                 console.log("0 received");
             } else {
                 console.log(data);
-
-                // Update the HTML elements with the received data
-                updateProfileUI(data);
             }
         })
         .catch((error) => {
@@ -20,32 +17,30 @@ function getProfile() {
         });
 }
 
-function updateProfileUI(profileData) {
-    // Assuming profileData is an array of user profiles
+function getProfile() {
+    var authKey = GetAuthKey();
+    var apiUrl = APIaddress() + 'User/GetProfile?auth_key=' + encodeURIComponent(authKey);
 
-    // Assuming you want to display the first user's data
-    if (profileData.length > 0) {
-        var user = profileData[0];
+    fetch(apiUrl)
+        .then(response => response.json()) // Assuming the response is in JSON format
+        .then(data => {
+            if (data.length > 0) {
+                // Update profile name
+                document.getElementById('profileName').innerText = data[0]['user displayname'];
 
-        // Update the name
-        document.getElementById('profileName').textContent = user.user_displayname || "No Name";
+                // Update profile email
+                document.getElementById('profileEmail').innerText = data[0]['user_email'];
 
-        // Update the company ID
-        document.getElementById('profileCompanyId').textContent = user.user_company_id || "No Company ID";
+                // Update profile description
+                document.getElementById('profileDescription').innerText = data[0]['user_bio'];
 
-        // Update the email (cleaned from unexpected characters)
-        document.getElementById('profileEmail').textContent = cleanEmail(user.user_email) || "No Email";
+                // You can add more updates for other elements as needed
 
-        // Update the picture
-        document.getElementById('profilePicture').src = user.user_picture || "default_picture_url";
-    } else {
-        console.log("No user profiles received");
-    }
-}
-
-// Function to clean email from unexpected characters
-function cleanEmail(email) {
-    // Implement cleaning logic as needed
-    // For example, removing square brackets and single quotes
-    return email.replace(/[\[\]']/g, '');
+            } else {
+                console.log("Empty data received");
+            }
+        })
+        .catch((error) => {
+            console.log("Error fetching data:", error);
+        });
 }
