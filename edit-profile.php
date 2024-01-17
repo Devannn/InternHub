@@ -37,7 +37,7 @@ include 'inc/checkAuthKey.php';
                                     <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="email" required="">
                                 </div>
                                 <div class="form-group">
-                                    <input id="bioInput" placeholder="Bio" class="form-control form-control-sm" type="text" required="">
+                                    <textarea id="BioInput" placeholder="Bio" class="form-control form-control-sm" type="textarea" required=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="profilePictureInput" class="form-label">Profile Picture</label>
