@@ -157,7 +157,7 @@ function generateCompanyHTML(data) {
 
 function getProfile() {
     var data = {
-        "authkey": "t5SIxe070ceMsjqDgsXc",
+        "authkey": getAuthKey(),
     };
 
     document.getElementById("loginForm").reset();
