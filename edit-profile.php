@@ -15,9 +15,9 @@ include 'inc/checkAuthKey.php';
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
-	<script type="text/javascript" src="js/edit-profile.js"></script>
-    
-	<title>InternHub</title>
+    <script type="text/javascript" src="js/edit-profile.js"></script>
+
+    <title>InternHub</title>
 </head>
 
 <body onload="getProfile()">
@@ -30,7 +30,7 @@ include 'inc/checkAuthKey.php';
                     <div class="card">
                         <div class="card-body">
                             <h3>Main Settings</h3>
-                            <form class="form" role="form" action="messages.php">
+                            <form class="form" role="form" action="profile.php">
                                 <div class="form-group">
                                     <input id="displayNameInput" placeholder="Display Name" class="form-control form-control-sm" type="text" required="">
                                 </div>
@@ -60,7 +60,7 @@ include 'inc/checkAuthKey.php';
                     <div class="card">
                         <div class="card-body">
                             <h3>Change Password</h3>
-                            <form class="form" role="form" action="messages.php">
+                            <form class="form" role="form" action="profile.php">
                                 <div class="form-group">
                                     <input id="currentPasswordInput" placeholder="Current Password" class="form-control form-control-sm" type="password" required="">
                                 </div>
@@ -82,7 +82,7 @@ include 'inc/checkAuthKey.php';
                     <div class="card">
                         <div class="card-body">
                             <h3>Select Tags</h3>
-                            <form class="form" role="form" action="messages.php">
+                            <form class="form" role="form" action="profile.php">
                                 <div class="form-group">
                                     Select Tags
                                 </div>
