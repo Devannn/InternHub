@@ -34,24 +34,13 @@ include 'inc/checkAuthKey.php';
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2>Devan Janssen</h2>
-                            <p>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga vel iste maiores deserunt eligendi maxime, excepturi qui quo dignissimos deleniti dolores amet necessitatibus nam saepe inventore, sequi nihil quibusdam libero.
+                            <h2 id="profileName">Devan Janssen</h2>
+                            <p id="profileDescription">
+                                No bio yet.
                             </p>
                         </div>
                     </div>
                     <!-- Main -->
-
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 id="profileName">Test 1</h2>
-                            <h2 id="profileEmail">Test 1</h2>
-                            <p id="profileDescription">
-                                nothing
-                            </p>
-                        </div>
-                    </div>
-
 
                     <!-- Your Reviews -->
                     <div class="card card-company-info">
