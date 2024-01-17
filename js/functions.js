@@ -47,11 +47,11 @@ function AcknowledgeWebsocket() {
 function GetAuthKey() {
     var authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
-    if (authKey.trim() === "") {
+	if (authKey.trim() === "") {
         window.location.href = "index.php";
-        return;
+        return; 
     }
-
+	
     return authKey;
 }
 
