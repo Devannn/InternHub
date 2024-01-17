@@ -15,11 +15,12 @@ include 'inc/checkAuthKey.php';
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
-
-    <title>InternHub</title>
+	<script type="text/javascript" src="js/edit-profile.js"></script>
+    
+	<title>InternHub</title>
 </head>
 
-<body>
+<body onload="getProfile()">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
