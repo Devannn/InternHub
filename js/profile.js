@@ -24,6 +24,8 @@ function updateProfileUI(profileData) {
     // Update the name
     document.getElementById('profileName').textContent = profileData.name;
 
+    document.getElementById('profileEmail').textContent = profileData.email;
+
     // Update the description
     document.getElementById('profileDescription').textContent = profileData.description;
 

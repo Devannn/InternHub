@@ -42,12 +42,16 @@ include 'inc/checkAuthKey.php';
                     </div>
                     <!-- Main -->
 
-                    <div class="card-body">
-                        <h2 id="profileName">Test 1</h2>
-                        <p id="profileDescription">
-                            nothing
-                        </p>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 id="profileName">Test 1</h2>
+                            <h2 id="profileEmail">Test 1</h2>
+                            <p id="profileDescription">
+                                nothing
+                            </p>
+                        </div>
                     </div>
+
 
                     <!-- Your Reviews -->
                     <div class="card card-company-info">
