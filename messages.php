@@ -107,7 +107,7 @@ include 'inc/checkAuthKey.php';
                 <div class="col-md-8 order-md-2">
                     <div class="card">
                         <div class="card-header">
-                            <span id="username">asdf</span>
+                            <span id="receiver">NAME</span>
                         </div>
                         <div class="card-body">
                             <div id="chat-container"></div>
