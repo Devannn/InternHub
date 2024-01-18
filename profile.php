@@ -94,7 +94,20 @@ include 'inc/checkAuthKey.php';
                         <!-- Category -->
                         <div class="card card-company-bio">
                             <div class="card-body">
-                                <h3>Your Category</h3>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h3>Your Category</h3>
+                                    </div>
+                                    <div class="col-2 float-right">
+                                        <div class="float-right">
+                                            <a href="add-category.php">
+                                                <button class="btn btn-primary">
+                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row overflow-auto">
                                     <div class="tag tag-profile d-inline-block">Media</div>
                                 </div>
@@ -105,7 +118,20 @@ include 'inc/checkAuthKey.php';
                         <!-- Tags -->
                         <div class="card card-company-bio">
                             <div class="card-body">
-                                <h3>Your Tags</h3>
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h3>Your Tags</h3>
+                                    </div>
+                                    <div class="col-2 float-right">
+                                        <div class="float-right">
+                                            <a href="add-tags.php">
+                                                <button class="btn btn-primary">
+                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row overflow-auto">
                                     <div class="tag tag-profile d-inline-block">Laravel</div>
                                     <div class="tag tag-profile d-inline-block">Vue.JS</div>
