@@ -15,11 +15,66 @@ include 'inc/checkAuthKey.php';
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/messages.js"></script>
 
     <title>InternHub</title>
+	
+	<style>
+		.list-group {
+			list-style: none;
+		}	
+	
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+			max-width: 100%; /* Set your desired maximum width */
+			max-height: 400px; /* Set your desired maximum height */
+			overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .message {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 70%;
+			display: flex;
+			align-items: center;
+			position: relative;
+			justify-content: space-between;
+        }
+
+        .sender {
+            background-color: #e0f7fa; 
+            align-self: flex-end;
+        }
+
+        .receiver {
+            background-color: #ffccbc; 
+            align-self: flex-start;
+        }
+		
+		.message {word-wrap: break-word !important;}
+		
+		input{
+			width: 90%;
+			margin: 20px 0px 0px 0px;
+		}
+		
+		.message-time {
+		  font-size: 50%; 
+		  padding-left: 10px;
+		  padding-bottom: 2px;
+		  padding-right: 4px;
+		  position: absolute;
+		  bottom: 0;
+		  right: 0;
+		  z-index: 1; 
+		}
+    </style>
 </head>
 
-<body>
+<body onload="getMessages(); retrieveData(getParameterByName('i'));">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -34,20 +89,11 @@ include 'inc/checkAuthKey.php';
                                         Show Messages
                                     </button>
                                     <ul class="list-group collapse show" id="responsive-list" style="list-style-type:none;">
-                                        <li><a href="?i=2" class="list-group-item">
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <div class="message-list-image">
-                                                            <img src="img/pfp.jpeg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="col text-bold">Username 1</div>
-                                                        <div class="col">Last message.</div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        
+										
+										<div id="messageContainer"></div>
+										
+
                                     </ul>
                                 </div>
                             </div>
@@ -61,14 +107,14 @@ include 'inc/checkAuthKey.php';
                 <div class="col-md-8 order-md-2">
                     <div class="card">
                         <div class="card-header">
-                            <span id="username"></span>
+                            <span id="username">asdf</span>
                         </div>
                         <div class="card-body">
                             <div id="chat-container"></div>
                         </div>
                         <div class="card-footer">
                             <input type="text" id="messageInput" placeholder="Type your message">
-                            <button onclick="sendMessage()">Send</button>
+                            <button onclick="sendMessage(getParameterByName('i'), document.getElementById('messageInput'))">Send</button>
                         </div>
                     </div>
                 </div>
@@ -83,139 +129,83 @@ include 'inc/checkAuthKey.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
-    var receiverId = getParameterByName('i');
-    if (receiverId == "1") {
-        receiverId = "userkey1";
-    } else if (receiverId == "2") {
-        receiverId = "userkey2";
-    }
+    const socket = new WebSocket(WSaddress());
+    var authKey = GetAuthKey();
+	var user_id;	
 
-    document.getElementById('username').innerHTML = '<div>' + receiverId + '</div>';
-
-
-    const socket = new WebSocket("ws://localhost:5000/ws");
-    var authKey;
-    const chatContainer = document.getElementById("chat-container");
+	(async () => {
+		user_id = await getUserIdFromAuthKey(authKey);
+	})();
+	
+    const chatContainer = document.getElementById("chat-container"); 
 
     socket.addEventListener("open", (event) => {
         console.log("WebSocket connection opened");
-        retrieveData();
+		AcknowledgeWebsocket(authKey);
     });
 
     socket.addEventListener("message", (event) => {
-        console.log("Received from server: ", event.data);
-
+	console.log("Received from server: ", event.data);
         try {
-            const data = JSON.parse(event.data);
+			const data = JSON.parse(event.data);
+			
+			if (
+			  data.hasOwnProperty("Sender") &&
+			  data.hasOwnProperty("Receiver") &&
+			  data.hasOwnProperty("Message") &&
+			  data.hasOwnProperty("Datetime")
+			) {
+			
+			  const messageDiv = document.createElement("div");
+			  messageDiv.classList.add("message");
+			  
+			  // Check if the sender is the current user
+				console.log(user_id);
+				console.log(data.Sender);
+              const sendRightSide = (user_id == data.Sender);
+			  
+              if (sendRightSide) {
+                  messageDiv.classList.add("sender");
+              } else {
+                  messageDiv.classList.add("receiver");
+              }
 
-            if (data.hasOwnProperty("Sender") && data.hasOwnProperty("Receiver") && data.hasOwnProperty("Message") && data.hasOwnProperty("Datetime")) {
-                //check with db what key connects to what userid
-                if (authKey == "userkey1") {
-                    check = "1";
-                } else if (authKey == "userkey2") {
-                    check = "2";
-                }
+			  const timeDiv = document.createElement("span");
+			  timeDiv.classList.add("message-time");
 
-                // Determine if the sender should be on the right side
-                let sendRightSide = false;
-                if (check == data.Sender) {
-                    sendRightSide = true;
-                }
+			  const date = new Date(data.Datetime);
+			  const hours = String(date.getHours()).padStart(2, "0");
+			  const minutes = String(date.getMinutes()).padStart(2, "0");
+			  const formattedTime = `${hours}:${minutes}`;
 
-                const messageDiv = document.createElement("div");
-                messageDiv.classList.add("message");
+			  timeDiv.textContent = formattedTime;
 
-                if (sendRightSide) {
-                    messageDiv.classList.add("sender");
-                } else {
-                    // Use your existing logic for left side
-                    messageDiv.classList.add("receiver");
-                }
+              // Create div for message content
+		      const messageContentDiv = document.createElement("div");
+			  messageContentDiv.classList.add("message-content");
+			  messageContentDiv.textContent = data.Message;
+            
+			  // Append message content and time to message div
+			  messageDiv.appendChild(messageContentDiv);
+			  messageDiv.appendChild(timeDiv);
 
+			  chatContainer.appendChild(messageDiv);
 
-                const date = new Date(data.Datetime);
+			  // Scroll to the bottom to show the latest message
+			  chatContainer.scrollTop = chatContainer.scrollHeight;
+			} else {
+			  console.log("Skipping non-chat message:", event.data);
+			}
+		} catch (error) {
+			console.error("Error parsing JSON:", error);
+		}
 
-                const hours = String(date.getHours()).padStart(2, '0');
-                const minutes = String(date.getMinutes()).padStart(2, '0');
-
-                const formattedTime = `${hours}:${minutes}`;
-
-                messageDiv.textContent = `${data.Message} ${formattedTime}`;
-                chatContainer.appendChild(messageDiv);
-
-                // Scroll to the bottom to show the latest message
-                chatContainer.scrollTop = chatContainer.scrollHeight;
-            } else {
-                console.log("Skipping non-chat message:", event.data);
-            }
-        } catch (error) {
-            console.error("Error parsing JSON:", error);
-        }
     });
 
     socket.addEventListener("close", (event) => {
         console.log("WebSocket connection closed");
     });
 
-    function getCookie() {
-        checkAuthkey();
-        // Read the value of the specified cookie
-        authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-
-        // Log the value (you can remove this in production)
-        console.log('Value of authkey cookie:', authKey);
-    }
-
-    // Function to send a message to the WebSocket server
-    function sendMessage() {
-        const messageInput = document.getElementById('messageInput');
-        const message = messageInput.value;
-
-        // Prompt the user for the receiver information
-        var receiverId = getParameterByName('i');
-
-        if (authKey !== undefined && receiverId !== null && message.trim() !== '') {
-            const data = {
-                sender: authKey,
-                receiver: parseInt(receiverId),
-                message: message
-            };
-
-            if (socket.readyState === WebSocket.OPEN) {
-                socket.send(JSON.stringify(data));
-                console.log(JSON.stringify(data));
-
-                // Clear the input field
-                messageInput.value = '';
-            } else {
-                console.error('WebSocket is not in the OPEN state.');
-            }
-        }
-    }
-
-    function retrieveData() {
-
-        if (authKey == "userkey1") {
-            var receiverID = 2;
-        }
-        if (authKey == "userkey2") {
-            var receiverID = 1;
-        }
-
-        if (authKey !== undefined && receiverID !== undefined) {
-            const data = {
-                sender: authKey,
-                receiver: parseInt(receiverID),
-                data: "retrieve_data"
-            };
-
-            socket.send(JSON.stringify(data));
-            console.log(JSON.stringify(data));
-
-            // Clear the input field
-            messageInput.value = '';
-        }
-    }
 </script>
 
 </html>

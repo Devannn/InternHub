@@ -20,7 +20,7 @@ include 'inc/checkAuthKey.php';
     <title>InternHub</title>
 </head>
 
-<body onload="getProfile()">
+<body onload="getProfile(); getUserReview();">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -36,7 +36,7 @@ include 'inc/checkAuthKey.php';
 							
                         </div>
                         <div class="card-body">
-                            <h2 id="profileName"></h2>
+                            <h2 id="profileName">No profile name.</h2>
                             <p id="profileDescription">
                                 No bio yet.
                             </p>

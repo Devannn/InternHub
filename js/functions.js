@@ -7,7 +7,18 @@ function WSaddress() {
 }
 
 function FilePathAPI(){
-	return "C:/Users/dylan/Desktop/InternHubAPI/InternHubAPI/InternHubAPI/bin/Debug/net6.0/InternHubFiles/";
+	return "filepath";
+}
+
+function GetAuthKey() {
+    var authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+	if (authKey.trim() === "") {
+        window.location.href = "index.php";
+        return; 
+    }
+	
+    return authKey;
 }
 
 function setAuthkey(authkey, href) {
@@ -28,44 +39,17 @@ function logout() {
     window.location.href = "index.php"; // Replace "logout.php" with your logout or login page
 }
 
+function AcknowledgeWebsocket() {   
+    const data = {
+        sender: GetAuthKey(),
+    };
+
+    socket.send(JSON.stringify(data));
+    console.log(JSON.stringify(data));   
+}
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function initialize() {
-    GetAuthKey();
-    retrieveData(GetAuthKey(), getParameterByName('i'));
-}
-
-function AcknowledgeWebsocket() {
-    if (authKey !== undefined) {
-        const data = {
-            sender: authKey,
-        };
-
-        socket.send(JSON.stringify(data));
-        console.log(JSON.stringify(data));
-
-        messageInput.value = '';
-    }
-}
-
-function GetAuthKey() {
-    var authKey = document.cookie.replace(/(?:(?:^|.*;\s*)authkey\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-
-	if (authKey.trim() === "") {
-        window.location.href = "index.php";
-        return; 
-    }
-	
-    return authKey;
-}
-
-function GetUserID(authKey) {
-    if (authKey == "userkey1") {
-        return 1;
-    } else if (authKey == "userkey2") {
-        return 2;
-    }
-}
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -110,7 +94,3 @@ async function getDisplayNameFromUserID(authKey, userID) {
         return '';
     }
 }
-
-// Homepage
-
-// Homepage
