@@ -26,27 +26,19 @@ include 'inc/checkAuthKey.php';
         <div class="container">
             <div class="row justify-content-center" style="margin-top: 24px;">
                 <div class="col-md-6 order-md-2 col-companies">
-                    <!-- Main Settings -->
+                    <!-- Edit Category -->
                     <div class="card">
                         <div class="card-body">
-                            <h3>Main Settings</h3>
+                            <h3>Select Category</h3>
                             <form class="form" role="form" action="profile.php">
                                 <div class="form-group">
-                                    <input id="displayNameInput" placeholder="Display Name" class="form-control form-control-sm" type="text" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="email" required="">
-                                </div>
-                                <div class="form-group">
-                                    <textarea id="BioInput" placeholder="Bio" class="form-control form-control-sm" type="textarea" required=""></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="profilePictureInput" class="form-label">Profile Picture</label>
-                                    <input id="profilePictureInput" type="file">
-                                </div>
-                                <div class="form-group">
-                                    <label for="resumeInput" class="form-label">Resume</label>
-                                    <input id="resumeInput" type="file">
+                                    <select name="category" id="category">
+                                        <option value="business">Business</option>
+                                        <option value="media">Media</option>
+                                        <option value="software">Software</option>
+                                        <option value="technology">Technology</option>
+                                        <option value="infrastucture">Infrastructure</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
@@ -54,15 +46,21 @@ include 'inc/checkAuthKey.php';
                             </form>
                         </div>
                     </div>
-                    <!-- Main Settings -->
+                    <!-- Edit Category -->
 
-                    <!-- Tags -->
+                    <!-- Edit Tags -->
                     <div class="card">
                         <div class="card-body">
                             <h3>Select Tags</h3>
                             <form class="form" role="form" action="profile.php">
                                 <div class="form-group">
-                                    Select Tags
+                                    <select name="category" id="category">
+                                        <option value="laravel">Laravel</option>
+                                        <option value="media">Vue.JS</option>
+                                        <option value="software">JavaScript</option>
+                                        <option value="technology">React</option>
+                                        <option value="infrastucture">Photoshop</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
@@ -70,7 +68,7 @@ include 'inc/checkAuthKey.php';
                             </form>
                         </div>
                     </div>
-                    <!-- Tags -->
+                    <!-- Edit Tags -->
                 </div>
             </div>
         </div>
