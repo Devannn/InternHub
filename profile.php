@@ -100,7 +100,7 @@ include 'inc/checkAuthKey.php';
                                     </div>
                                     <div class="col-2 float-right">
                                         <div class="float-right">
-                                            <a href="add-category.php">
+                                            <a href="edit-tags.php">
                                                 <button class="btn btn-primary">
                                                     <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
                                                 </button>
@@ -124,7 +124,7 @@ include 'inc/checkAuthKey.php';
                                     </div>
                                     <div class="col-2 float-right">
                                         <div class="float-right">
-                                            <a href="add-tags.php">
+                                            <a href="edit-tags.php">
                                                 <button class="btn btn-primary">
                                                     <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
                                                 </button>
