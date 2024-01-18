@@ -49,11 +49,14 @@ include 'inc/checkAuthKey.php';
                         <div class="card-body">
                             <h2>Your Reviews</h2>
                             <div class="review">
-                                3,7
-                                <img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-4px;" />
+                                <span>Roc ter AA</span> |
+                                3,7<img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-4px;" />
                                 <h5>Leuk bedrijf waarbij er veel geleerd kan worden etc.</h5>
-                                <div style="font-size: 13px; margin-top:-10px; margin-bottom: 10px;">Stagiare | Helmond | 4 oktober 2023</div>
+                                <div style="font-size: 13px; margin-top:-10px; margin-bottom: 10px;">Stagiare | Helmond | 1-1-2024 / 1-8-2024</div>
                                 <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates deserunt dolorem reprehenderit cum dolore maiores totam. Nemo possimus provident cumque, perspiciatis aut voluptate, distinctio quos corporis aspernatur unde adipisci excepturi.</div>
+                                <div class="companies-text-right col-text-small">
+                                    ${new Date().toLocaleDateString()}
+                                </div>
                             </div>
                         </div>
                     </div>

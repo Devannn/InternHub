@@ -64,11 +64,15 @@ include 'inc/checkAuthKey.php';
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="assigments-tab" data-bs-toggle="tab" data-bs-target="#three" type="button" role="tab" aria-controls="three" aria-selected="true">Assigments</a>
+                                    <a class="nav-link" id="internships-tab" data-bs-toggle="tab" data-bs-target="#three" type="button" role="tab" aria-controls="three" aria-selected="true">Internships</a>
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#four" type="button" role="tab" aria-controls="four" aria-selected="false">Reviews</a>
+                                    <a class="nav-link" id="assigments-tab" data-bs-toggle="tab" data-bs-target="#four" type="button" role="tab" aria-controls="four" aria-selected="true">Assignments</a>
+                                </li>
+
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#five" type="button" role="tab" aria-controls="five" aria-selected="false">Reviews</a>
                                 </li>
                             </ul>
                         </div>
@@ -143,11 +147,11 @@ include 'inc/checkAuthKey.php';
                         </div>
                         <!-- Info -->
 
-                        <!-- Assigments -->
+                        <!-- Internships -->
                         <div class="tab-pane fade" id="three">
                             <div class="card card-company-bio">
                                 <div class="card-body">
-                                    <h3>Assignments</h3>
+                                    <h3>Internships</h3>
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
@@ -189,10 +193,58 @@ include 'inc/checkAuthKey.php';
                                 </div>
                             </div>
                         </div>
+                        <!-- Internships -->
+                        
                         <!-- Assigments -->
+                        <div class="tab-pane fade" id="four">
+                            <div class="card card-company-bio">
+                                <div class="card-body">
+                                    <h3>Assigments</h3>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Title</th>
+                                                <th scope="col">Tags</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>HBO Graduation Assignment: Make a website for a pizza company</td>
+                                                <td>Laravel</td>
+                                                <td>
+                                                    <form action="assignment.php">
+                                                        <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>HBO Graduation Assignment: Make a website for a pizza company</td>
+                                                <td>React</td>
+                                                <td>
+                                                    <form action="assignment.php">
+                                                        <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>HBO Graduation Assignment: Make a website for a pizza company</td>
+                                                <td>Vue.JS</td>
+                                                <td>
+                                                    <form action="assignment.php">
+                                                        <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Assignments -->
 
                         <!-- Reviews -->
-                        <div class="tab-pane fade" id="four">
+                        <div class="tab-pane fade" id="five">
                             <div class="card card-company-bio">
                                 <div class="card-body">
                                     <div class="row">
@@ -226,11 +278,13 @@ include 'inc/checkAuthKey.php';
                                         </div>
                                     </div>
                                     <div class="review">
-                                        3,7
-                                        <img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-4px;" />
+                                        3,7<img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-4px;" />
                                         <h5>Leuk bedrijf waarbij er veel geleerd kan worden etc.</h5>
-                                        <div style="font-size: 13px; margin-top:-10px; margin-bottom: 10px;">Stagiare | Helmond | 4 oktober 2023</div>
+                                        <div style="font-size: 13px; margin-top:-10px; margin-bottom: 10px;">Stagiare | Helmond | 1-1-2024 / 1-8-2024</div>
                                         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates deserunt dolorem reprehenderit cum dolore maiores totam. Nemo possimus provident cumque, perspiciatis aut voluptate, distinctio quos corporis aspernatur unde adipisci excepturi.</div>
+                                        <div class="companies-text-right col-text-small">
+                                            ${new Date().toLocaleDateString()}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
