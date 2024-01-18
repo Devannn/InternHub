@@ -5,12 +5,16 @@ function getProfile() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.length > 0) {
-                // Update html data based on json data
-                document.getElementById('profileName').innerText = data[0]['user_displayname'] || 'No Display Name';
-                document.getElementById('profileEmail').innerText = data[0]['user_email'];
                 document.getElementById('profileDescription').innerText = data[0]['user_bio'];
-
+				document.getElementById('profileName').innerText = data[0]['user_displayname'];
+                document.getElementById('resumeFileName').innerText = data[0]['user_cv'];
+				
+				if (data[0]['user_company_id'] != ""){
+					document.getElementById("companyControl").style.display = "block";
+				}
+				
             } else {
                 console.log("Empty data received");
             }

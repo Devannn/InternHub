@@ -30,7 +30,7 @@ include 'inc/checkAuthKey.php';
                     <div class="card">
                         <div class="card-body">
                             <h3>Main Settings</h3>
-                            <form class="form" role="form" action="profile.php">
+                            <form class="form" role="form">
                                 <div class="form-group">
                                     <input id="displayNameInput" placeholder="Display Name" class="form-control form-control-sm" type="text" required="">
                                 </div>
@@ -49,8 +49,19 @@ include 'inc/checkAuthKey.php';
                                     <input id="resumeInput" type="file">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                                    <button type="button" onclick="UpdateProfile()" class="btn btn-primary btn-block">Save Changes</button>
                                 </div>
+								
+								<div id="updateSuccesMessage" style="display: none; color: green;">
+                                    Settings changed!
+                                </div>
+								<div id="updateErrorMessage" style="display: none; color: red;">
+                                    Settings could not be updated!
+                                </div>
+                                <div id="updateAPIerrorMessage" style="display: none; color: red;">
+                                    An unexpected error occured! Try again later.
+                                </div>
+								
                             </form>
                         </div>
                     </div>
@@ -60,7 +71,7 @@ include 'inc/checkAuthKey.php';
                     <div class="card">
                         <div class="card-body">
                             <h3>Change Password</h3>
-                            <form class="form" role="form" action="profile.php">
+                            <form class="form" role="form">
                                 <div class="form-group">
                                     <input id="currentPasswordInput" placeholder="Current Password" class="form-control form-control-sm" type="password" required="">
                                 </div>
@@ -71,8 +82,19 @@ include 'inc/checkAuthKey.php';
                                     <input id="confirmPasswordInput" placeholder="Confirm Password" class="form-control form-control-sm" type="password" required="">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                                    <button type="button" onclick="UpdatePassword()" class="btn btn-primary btn-block">Save Changes</button>
                                 </div>
+								
+								<div id="passwordSuccesMessage" style="display: none; color: green;">
+                                    Password changed!
+                                </div>
+								<div id="passwordErrorMessage" style="display: none; color: red;">
+                                    Password could not be updated!
+                                </div>
+                                <div id="passwordAPIerrorMessage" style="display: none; color: red;">
+                                    An unexpected error occured! Try again later.
+                                </div>
+								
                             </form>
                         </div>
                     </div>

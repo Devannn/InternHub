@@ -29,12 +29,14 @@ include 'inc/checkAuthKey.php';
                     <!-- Main -->
                     <div class="card card-company-info">
                         <div class="card-image company-background-image">
-                            <div class="card-image company-logo">
-                                <img src="img/pfp/default.png" alt="">
-                            </div>
+
+							<div class="card-image company-logo" id="userImageContainer">
+								<img id="userImage" src="img/pfp/default.png" alt="">
+							</div>
+							
                         </div>
                         <div class="card-body">
-                            <h2 id="profileName">Devan Janssen</h2>
+                            <h2 id="profileName"></h2>
                             <p id="profileDescription">
                                 No bio yet.
                             </p>
@@ -84,7 +86,7 @@ include 'inc/checkAuthKey.php';
                         <div class="card card-company-bio">
                             <div class="card-body">
                                 <h3>Resume</h3>
-                                <p>
+                                <p id="resumeFileName">
                                     resume.pdf
                                 </p>
                             </div>
@@ -143,48 +145,53 @@ include 'inc/checkAuthKey.php';
                             </div>
                         </div>
                         <!-- Tags -->
+						
+						<div id="companyControl" style="display: none;">
+							
+							<!-- Add Internship -->
+							<div class="card card-company-bio">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-10">
+											<h3>Add Internship</h3>
+										</div>
+										<div class="col-2 float-right">
+											<div class="float-right">
+												<a href="add-internship.php">
+													<button class="btn btn-primary">
+														<img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+													</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Add Internship -->
 
-                        <!-- Add Internship -->
-                        <div class="card card-company-bio">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <h3>Add Internship</h3>
-                                    </div>
-                                    <div class="col-2 float-right">
-                                        <div class="float-right">
-                                            <a href="add-internship.php">
-                                                <button class="btn btn-primary">
-                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Internship -->
-
-                        <!-- Add Assigment -->
-                        <div class="card card-company-bio">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-10">
-                                        <h3>Add Assigment</h3>
-                                    </div>
-                                    <div class="col-2 float-right">
-                                        <div class="float-right">
-                                            <a href="add-assignment.php">
-                                                <button class="btn btn-primary">
-                                                    <img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
-                                                </button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Assigment -->
+							<!-- Add Assigment -->
+							<div class="card card-company-bio">
+								<div class="card-body">
+									<div class="row">
+										<div class="col-10">
+											<h3>Add Assigment</h3>
+										</div>
+										<div class="col-2 float-right">
+											<div class="float-right">
+												<a href="add-assignment.php">
+													<button class="btn btn-primary">
+														<img src="img/icons/pen-to-square-solid.png" alt="" width="20px" />
+													</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Add Assigment -->
+						
+						</div>
+						
                     </div>
                 </div>
             </div>

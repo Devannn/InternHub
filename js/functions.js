@@ -6,6 +6,10 @@ function WSaddress() {
     return "ws://localhost:5000/ws";
 }
 
+function FilePathAPI(){
+	return "C:/Users/dylan/Desktop/InternHubAPI/InternHubAPI/InternHubAPI/bin/Debug/net6.0/InternHubFiles/";
+}
+
 function setAuthkey(authkey, href) {
 
     var expirationDate = new Date();
