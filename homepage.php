@@ -16,7 +16,6 @@ include 'inc/checkAuthKey.php';
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
     <script type="text/javascript" src="js/homepage.js"></script>
-    <script type="text/javascript" src="js/profile.js"></script>
 
     <title>InternHub</title>
 </head>
@@ -70,15 +69,8 @@ include 'inc/checkAuthKey.php';
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="text-center" id="profileName">Devan Janssen</h6>
-                            <p id="profileBio">
-                                Hi, I'm Devan Janssen!
-                                Exploring life's adventures, one day at a time.
-                                Passionate about Coding.
-                                Always learning, forever curious
-                                Creative soul with a love for Coding.
-                                Making memories and cherishing moments.
-                            </p>
+                            <h6 class="text-center" id="profileName"></h6>
+                            <p id="profileDescription"></p>
                         </div>
                     </div>
                 </div>
