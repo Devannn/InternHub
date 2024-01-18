@@ -91,6 +91,17 @@ include 'inc/checkAuthKey.php';
                         </div>
                         <!-- Resume -->
 
+                        <!-- Category -->
+                        <div class="card card-company-bio">
+                            <div class="card-body">
+                                <h3>Your Category</h3>
+                                <div class="row overflow-auto">
+                                    <div class="tag tag-profile d-inline-block">Media</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Category -->
+
                         <!-- Tags -->
                         <div class="card card-company-bio">
                             <div class="card-body">

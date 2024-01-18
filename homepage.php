@@ -20,7 +20,7 @@ include 'inc/checkAuthKey.php';
     <title>InternHub</title>
 </head>
 
-<body>
+<body onload="getProfile()">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -69,8 +69,8 @@ include 'inc/checkAuthKey.php';
                             </div>
                         </div>
                         <div class="card-body">
-                            <h6 class="text-center">Devan Janssen</h6>
-                            <p>
+                            <h6 class="text-center" id="profileName">Devan Janssen</h6>
+                            <p id="profileBio">
                                 Hi, I'm Devan Janssen!
                                 Exploring life's adventures, one day at a time.
                                 Passionate about Coding.
