@@ -152,29 +152,64 @@ include 'inc/checkAuthKey.php';
                             <div class="card card-company-bio">
                                 <div class="card-body">
                                     <h3>Internships</h3>
-                                    <div class="card companies-card col-6">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <h3>ROC Ter AA</h3>
-                                                    <span>01-01-2024 / 01-06-2024</span> <span>| Spots: 40</span> <br>
-                                                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit reprehenderit fugiat enim, laudantium, porro quam similique doloremque corrupti quibusdam numquam quisquam eveniet perferendis alias amet obcaecati possimus exercitationem, recusandae est.</span>
+                                   <div class="row">
+                                    <!-- Internship 1 -->
+                                    <div class="col-6">
+                                        <div class="card companies-card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <h3>ROC Ter AA</h3>
+                                                        <span>01-01-2024 / 01-06-2024</span> <span>| Spots: 40</span> <br>
+                                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit reprehenderit fugiat enim, laudantium, porro quam similique doloremque corrupti quibusdam numquam quisquam eveniet perferendis alias amet obcaecati possimus exercitationem, recusandae est.</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="py-2"></div>
-                                            <div class="row flex-nowrap overflow-auto">
-                                                <div class="tag d-inline-block">Laravel</div>
-                                                <div class="tag d-inline-block">Vue.JS</div>
-                                                <div class="tag d-inline-block">Bootstrap</div>
-                                                <div class="tag d-inline-block">Next.JS</div>
-                                                <div class="tag d-inline-block">React</div>
-                                                <div class="tag d-inline-block">Laravel</div>
-                                            </div>
-                                            <div class="companies-text-right col-text-small">
-                                                18-12-2023
+                                                <div class="py-2"></div>
+                                                <div class="row flex-nowrap overflow-auto">
+                                                    <div class="tag d-inline-block">Laravel</div>
+                                                    <div class="tag d-inline-block">Vue.JS</div>
+                                                    <div class="tag d-inline-block">Bootstrap</div>
+                                                    <div class="tag d-inline-block">Next.JS</div>
+                                                    <div class="tag d-inline-block">React</div>
+                                                    <div class="tag d-inline-block">Laravel</div>
+                                                </div>
+                                                <div class="companies-text-right col-text-small">
+                                                    18-12-2023
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Internship 1 -->
+
+                                    <!-- Internship 1 -->
+                                    <div class="col-6">
+                                        <div class="card companies-card">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <h3>ROC Ter AA</h3>
+                                                        <span>01-01-2024 / 01-06-2024</span> <span>| Spots: 40</span> <br>
+                                                        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit reprehenderit fugiat enim, laudantium, porro quam similique doloremque corrupti quibusdam numquam quisquam eveniet perferendis alias amet obcaecati possimus exercitationem, recusandae est.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="py-2"></div>
+                                                <div class="row flex-nowrap overflow-auto">
+                                                    <div class="tag d-inline-block">Laravel</div>
+                                                    <div class="tag d-inline-block">Vue.JS</div>
+                                                    <div class="tag d-inline-block">Bootstrap</div>
+                                                    <div class="tag d-inline-block">Next.JS</div>
+                                                    <div class="tag d-inline-block">React</div>
+                                                    <div class="tag d-inline-block">Laravel</div>
+                                                </div>
+                                                <div class="companies-text-right col-text-small">
+                                                    18-12-2023
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Internship 1 -->
+                                    
+                                   </div>
                                 </div>
                             </div>
                         </div>
