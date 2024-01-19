@@ -234,6 +234,13 @@ include 'inc/checkAuthKey.php';
         console.log("WebSocket connection closed");
     });
 
+document.addEventListener("DOMContentLoaded", function() {	
+    setInterval(function() {
+        getMessages();
+    }, 10000);
+});
+
 </script>
+
 
 </html>

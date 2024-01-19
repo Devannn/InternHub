@@ -55,7 +55,7 @@ function displayData(data, authKey) {
                                 </div>
                                 <div class="col">
                                     <div class="col text-bold">${otherUsername}</div>
-                                    <div class="col">${message.Message}</div>
+                                    <div class="col">${message.Message.substring(0, 20)}</div>
                                 </div>
                             </div>
                         </a>
