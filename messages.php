@@ -107,7 +107,7 @@ include 'inc/checkAuthKey.php';
                 <div class="col-md-8 order-md-2">
                     <div class="card">
                         <div class="card-header">
-                            <span id="receiver"></span>
+                            <span id="receiver">No Display Name</span>
                         </div>
                         <div class="card-body">
                             <div id="chat-container"></div>
@@ -134,11 +134,10 @@ include 'inc/checkAuthKey.php';
 		const authKey = GetAuthKey();
 		const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
 		
-		if (receiverName == "0") 
-		{
-			receiverName = "No Display Name"; 
+		if (receiverName === undefined || receiverName === null || receiverName === "") {
+			receiverName = "No Display Name";
 		}
-		
+
 		document.getElementById('receiver').innerHTML = receiverName;
 	} catch (error) {
 		console.error('Error updating receiver:', error);
