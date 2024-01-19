@@ -106,16 +106,20 @@ include 'inc/checkAuthKey.php';
                 <!-- Message Box -->
                 <div class="col-md-8 order-md-2">
                     <div class="card">
-                        <div class="card-header">
-                            <span id="receiver">NAME</span>
-                        </div>
-                        <div class="card-body">
-                            <div id="chat-container"></div>
-                        </div>
-                        <div class="card-footer">
-                            <input type="text" id="messageInput" placeholder="Type your message">
-                            <button onclick="sendMessage(getParameterByName('i'), document.getElementById('messageInput'))">Send</button>
-                        </div>
+                        
+						<div id="messagebox">
+							<div class="card-header">
+								<span id="receiver">No Display Name</span>
+							</div>
+							<div class="card-body">
+								<div id="chat-container"></div>
+							</div>
+							<div class="card-footer">
+								<input type="text" id="messageInput" placeholder="Type your message">
+								<button onclick="sendMessage(getParameterByName('i'), document.getElementById('messageInput'))">Send</button>
+							</div>
+						</div>
+						
                     </div>
                 </div>
                 <!-- Message Box -->
@@ -129,6 +133,30 @@ include 'inc/checkAuthKey.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
+(async function() {
+	try {
+		const authKey = GetAuthKey();
+		const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
+		
+		if (receiverName === undefined || receiverName === null || receiverName === "") {
+			receiverName = "No Display Name";
+		}
+
+		document.getElementById('receiver').innerHTML = receiverName;
+		
+		// Check if receiverName is 0, and hide the textbox accordingly
+        const messageInput = document.getElementById('messagebox');
+        if (receiverName == "0") {
+            messageInput.style.display = 'none';
+        } else {
+            messageInput.style.display = 'block';
+        }
+		
+	} catch (error) {
+		console.error('Error updating receiver:', error);
+	}
+})();
+
     const socket = new WebSocket(WSaddress());
     var authKey = GetAuthKey();
 	var user_id;	
@@ -206,6 +234,13 @@ include 'inc/checkAuthKey.php';
         console.log("WebSocket connection closed");
     });
 
+document.addEventListener("DOMContentLoaded", function() {	
+    setInterval(function() {
+        getMessages();
+    }, 10000);
+});
+
 </script>
+
 
 </html>
