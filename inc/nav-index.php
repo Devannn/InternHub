@@ -11,7 +11,6 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="">Messages</a>
                 <a class="nav-item nav-link" href="">Profile</a>
-                <a class="nav-item nav-link" href="homepage.php">Homepage for testing remove later</a>
             </div>
 
             <!-- Right Side Of Navbar -->
