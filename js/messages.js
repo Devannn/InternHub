@@ -4,20 +4,18 @@ function getMessages() {
 
     const apiUrl = `https://localhost:7040/api/Message/GetMessageOverview?auth_key=${authKey}`;
     
-    // Make the API call using fetch
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
 
 			if (data == 0) {
-				alert("Geen gesprekken gevonden.");
+				console.log("Geen gesprekken gevonden.")
+			} else {
+				displayData(data, authKey);
 			}
-            
-			// Display the data in an HTML form
-            displayData(data, authKey);
+			
         })
-        .catch(error => console.error('Error fetching data:', error));
-    
+        .catch(error => console.error('Error fetching data:', error)); 
 }
 
 function displayData(data, authKey) {
