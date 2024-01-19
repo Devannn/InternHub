@@ -9,7 +9,7 @@ function getMessages() {
         .then(data => {
 
 			if (data == 0) {
-				console.log("Geen gesprekken gevonden.")
+				console.log("Geen gesprekken gevonden.");
 			} else {
 				displayData(data, authKey);
 			}
