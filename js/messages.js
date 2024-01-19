@@ -39,7 +39,7 @@ function displayData(data, authKey) {
                 let otherUsername = (message.Sender == user_id) ? message.Receiver_Username : message.Sender_Username;
 
 				if (otherUsername === "") {
-					otherUsername = "Anonymous";
+					otherUsername = "No Display Name";
 				}
 				
                 const otherID = (message.Sender == user_id) ? message.Receiver : message.Sender;
