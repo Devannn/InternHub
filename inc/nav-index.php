@@ -9,8 +9,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="">Messages</a>
-                <a class="nav-item nav-link" href="">Profile</a>
             </div>
 
             <!-- Right Side Of Navbar -->
