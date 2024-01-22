@@ -16,11 +16,12 @@ getAuthKey();
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/assignment.js"></script>
 
     <title>InternHub</title>
 </head>
 
-<body>
+<body onload="getAssignment(getParameterByName('assignment_id'))">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -30,23 +31,10 @@ getAuthKey();
                     <div class="tab-pane fade show active" id="one">
                         <div class="card card-company-bio">
                             <div class="card-body">
-                                <h1>Green Coding</h1>
-                                <p>
-                                    ‘Green Coding’ gaat er vanuit dat als je code of opslag efficiënter maakt, die dan ook minder energie gebruikt en daarmee vriendelijker is voor het milieu.
-                                    <br>
-                                    De opdracht is om dit zoveel mogelijk kwantificeerbaar te maken, zodat er business cases gemaakt kunnen worden om het daadwerkelijk wel of niet te gaan doen.
-                                    <br>
-                                    Tijdens de stage kom je technieken tegen als Azure, C#, SQL-server, IIS, netwerkstacks etc.
-                                    <br>
-                                    Je zult zelf ook moeten onderzoeken hoe andere zaken te meten zijn. Kunnen we bijvoorbeeld het stroomverbruik van een router meten en er dus mee experimenteren? In hoeverre bijvoorbeeld zijn de kosten een Azure Database Transaction Unit te vertalen naar energieverbruik? Als we compressie gebruiken wegen dan de bespaarde storage- en netwerkkosten op tegen de extra CPU kosten? En nog veel meer vragen….
-                                    <br><br>
-                                    Green Coding assumes that if you make code or storage more efficient, it also uses less energy and is therefore kinder to the environment.
-                                    <br>
-                                    The assignment is to make this as quantifiable as possible, so that business cases can be made to actually do it or not.
-                                    <br>
-                                    During the internship you will come across techniques such as Azure, C#, SQL server, IIS, network stacks, etc.
-                                    <br>
-                                    You will also have to research how other things can be measured. For example, can we measure the power consumption of a router and thus experiment with it? For example, to what extent can the costs of an Azure Database Transaction Unit be translated into energy consumption? If we use compression, do the saved storage and network costs outweigh the extra CPU costs? And many more questions….
+                                
+								<h1 id="assignment_title"></h1>
+                                <p id="assignment_content">
+								
                                 </p>
                             </div>
                         </div>
@@ -71,7 +59,15 @@ getAuthKey();
                                         </tr>
                                         <tr>
                                             <td class="text-right">Created At</td>
-                                            <td>12-10-2024</td>
+                                            <td id="assignment_postdate"></td>
+                                        </tr>
+										<tr>
+                                            <td class="text-right">Start date</td>
+                                            <td id="assignment_startdate"></td>
+                                        </tr>
+										<tr>
+                                            <td class="text-right">End date</td>
+                                            <td id="assignment_enddate"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -128,9 +124,9 @@ getAuthKey();
                                     In onze colleges begeleiden wij mensen naar de toekomst. Dat doen we door samen met hen de passie en het succes te zoeken in vakmanschap en werk, deelname aan de maatschappij en verdere studie.
                                     Wij onderscheiden ons door onze persoonlijke manier van werken en onze gerichtheid op kwaliteit. Wij zijn (pro)actief bij alles wat we doen en betrokken bij iedereen voor wie we dat doen.
                                 </p>
-                                <form action="company.php">
-                                    <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="More Info" />
-                                </form>
+								
+                                    <input type="submit" onclick="returnToCompanyPage(getParameterByName('company_id'));" class="btn btn-outline-primary btn-assignment-link" value="More Info" />
+                               
                             </div>
                         </div>
                         <!-- Bio -->

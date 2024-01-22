@@ -75,7 +75,7 @@ getAuthKey();
     </style>
 </head>
 
-<body onload="getMessages(); retrieveData(getParameterByName('i'));">
+<body onload="getMessages(); retrieveData(getParameterByName('receiver_id'));">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -117,7 +117,7 @@ getAuthKey();
 							</div>
 							<div class="card-footer">
 								<input type="text" id="messageInput" placeholder="Type your message">
-								<button onclick="sendMessage(getParameterByName('i'), document.getElementById('messageInput'))">Send</button>
+								<button onclick="sendMessage(getParameterByName('receiver_id'), document.getElementById('messageInput'))">Send</button>
 							</div>
 						</div>
 						
@@ -137,7 +137,7 @@ getAuthKey();
 (async function() {
 	try {
 		const authKey = GetAuthKey();
-		const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
+		const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('receiver_id'));
 		
 		if (receiverName === undefined || receiverName === null || receiverName === "" || !receiverName) {
 			receiverName = "No Display Name";

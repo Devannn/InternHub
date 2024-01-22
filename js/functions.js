@@ -82,12 +82,6 @@ async function getDisplayNameFromUserID(authKey, userID) {
     }
 }
 
-//example: <a onclick="RelocateTo('add-review');"> // this relocate to add-review.php?i=company_id
-function RelocateTo(filename){
-	href= filename + ".php?i=" + getParameterByName('i')
-    window.location.href = href; 
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

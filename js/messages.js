@@ -44,7 +44,7 @@ function displayData(data, authKey) {
 
                 listHTML += `
                     <li>
-                        <a href="?i=${otherID}" class="list-group-item">
+                        <a href="?receiver_id=${otherID}" class="list-group-item">
                             <div class="row">
                                 <div class="col-2">
                                     <div class="message-list-image">

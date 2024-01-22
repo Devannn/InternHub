@@ -22,7 +22,7 @@ getAuthKey();
     <title>InternHub</title>
 </head>
 
-<body onload="getCompanyReview(getParameterByName('i')); getInternshipOverview(getParameterByName('i'));">
+<body onload="getCompanyReview(getParameterByName('company_id')); getInternshipOverview(getParameterByName('company_id'));">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -193,7 +193,7 @@ getAuthKey();
 										
 										<div class="col float-right">
 											<div class="float-right">
-												<a onclick="RelocateTo('add-review');">
+												<a onclick="RelocateToAddReview();">
 													<button class="btn btn-primary">
 														<img src="img/icons/plus-solid.png" alt="" width="20px" />
 													</button>

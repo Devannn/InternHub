@@ -44,14 +44,14 @@ function getCompanyReview(company_id) {
 }
 
 function RelocateToMessages(){
-	var company_id = getParameterByName('i');	
+	var company_id = getParameterByName('company_id');	
 	var authKey = GetAuthKey();
     var apiUrl = APIaddress() + 'Message/GetUserIDForCompany?auth_key=' + encodeURIComponent(authKey) + '&company_id=' + company_id;
 	
 	fetch(apiUrl)
         .then(response => response.json())
         .then(company_user_id => {
-		window.location.href = 'messages.php?i=' + company_user_id;
+		window.location.href = 'messages.php?receiver_id=' + company_user_id;
 			
         })
         .catch(error => console.error('Fetch error:', error));
@@ -103,12 +103,12 @@ function switchToAssignmentsTab(company_id, internship_id) {
 	document.getElementById('assignments-tab-link').click();
 
 	//Update url without reloading
-	var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?i=' + company_id + '&ii=' + internship_id;
+	var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?company_id=' + company_id + '&internship_id=' + internship_id;
     history.pushState({company_id: company_id, internship_id: internship_id}, null, newUrl);
-	getAssignmentOverview(getParameterByName('ii'));
+	getAssignmentOverview(company_id, getParameterByName('internship_id'));
 }
 
-function getAssignmentOverview(internship_id){
+function getAssignmentOverview(company_id, internship_id){
 	var authKey = GetAuthKey();
     var apiUrl = APIaddress() + 'Assignment/GetAssignmentOverview?auth_key=' + encodeURIComponent(authKey) + '&internship_id=' + internship_id;
     
@@ -125,7 +125,7 @@ function getAssignmentOverview(internship_id){
                     <td>${assignment.assignment_title}</td>
                     <td>${assignment.assignment_tags.join(', ')}</td>
                     <td>
-                        <a href="assignment.php?i=${assignment.assignment_id}">
+                        <a href="assignment.php?company_id=${company_id}&assignment_id=${assignment.assignment_id}">
                             <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
                         </a>
                     </td></tr>
@@ -137,4 +137,6 @@ function getAssignmentOverview(internship_id){
         .catch(error => console.error('Error fetching assignment details:', error));
 }
         
-	
+function RelocateToAddReview(){
+	window.location.href = 'add-review.php?company_id=' + getParameterByName('company_id');
+}

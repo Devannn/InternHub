@@ -63,7 +63,7 @@ getAuthKey();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" onclick="SaveReview(getParameterByName('i'))" class="btn btn-primary btn-block">Save Changes</button>
+                                    <button type="submit" onclick="SaveReview(getParameterByName('company_id'))" class="btn btn-primary btn-block">Save Changes</button>
                                 </div>
                             </form>
 							<div id="errorMessage" style="display: none; color: red;">

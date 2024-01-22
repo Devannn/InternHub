@@ -28,7 +28,7 @@ function SaveReview(company_id) {
         .then(data => {
             console.log(data);
             if (data === "true") {
-				window.location.href = "company.php?i=" + company_id;
+				window.location.href = "company.php?company_id=" + company_id;
             } else {
                 document.getElementById("errorMessage").style.display = "none";
             }
