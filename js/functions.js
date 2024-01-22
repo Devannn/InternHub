@@ -32,11 +32,9 @@ function setAuthkey(authkey, href) {
 }
 
 function logout() {
-    // Clear the authkey cookie by setting an expired date
     document.cookie = "authkey=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-    // Redirect the user to the login page or any desired destination
-    window.location.href = "index.php"; // Replace "logout.php" with your logout or login page
+    window.location.href = "index.php"; 
 }
 
 function AcknowledgeWebsocket() {   
@@ -48,9 +46,6 @@ function AcknowledgeWebsocket() {
     console.log(JSON.stringify(data));   
 }
 
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -59,14 +54,6 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-function redirectToURL(id) {
-    var url = 'socket.html';
-    var parameter = 'i=' + id;
-    var finalURL = url + '?' + parameter;
-
-    window.location.href = finalURL;
 }
 
 async function getUserIdFromAuthKey(authKey) {
@@ -94,3 +81,14 @@ async function getDisplayNameFromUserID(authKey, userID) {
         return '';
     }
 }
+
+//example: <a onclick="RelocateTo('add-review');"> // this relocate to add-review.php?i=company_id
+function RelocateTo(filename){
+	href= filename + ".php?i=" + getParameterByName('i')
+    window.location.href = href; 
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+

@@ -1,5 +1,6 @@
 <?php
 include 'inc/checkAuthKey.php';
+getAuthKey();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +16,12 @@ include 'inc/checkAuthKey.php';
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/company.js"></script>
 
     <title>InternHub</title>
 </head>
 
-<body>
+<body onload="getCompanyReview(getParameterByName('i'));">
     <div id="app">
         <?php include 'inc/nav.php' ?>
         <div class="container">
@@ -39,7 +41,7 @@ include 'inc/checkAuthKey.php';
                                 </div>
                                 <div class="col float-right">
                                     <div class="float-right">
-                                        <a href="messages.php">
+                                        <a onclick="RelocateToMessages();">
                                             <button class="btn btn-primary">
                                                 <img src="img/icons/message-solid.png" alt="" width="20px" />
                                             </button>
@@ -271,41 +273,38 @@ include 'inc/checkAuthKey.php';
                                         <div class="col">
                                             <h2>Reviews</h2>
                                         </div>
-                                        <div class="col float-right">
-                                            <div class="float-right">
-                                                <a href="add-review.php">
-                                                    <button class="btn btn-primary">
-                                                        <img src="img/icons/plus-solid.png" alt="" width="20px" />
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </div>
+										
+										<div class="col float-right">
+											<div class="float-right">
+												<a onclick="RelocateTo('add-review');">
+													<button class="btn btn-primary">
+														<img src="img/icons/plus-solid.png" alt="" width="20px" />
+													</button>
+												</a>
+											</div>
+										</div>
+										
                                     </div>
                                     <div class="reviews-global">
                                         <div class="row">
                                             <div class="col-3 col-md-1">
-                                                <h1>3,7</h1>
+                                                <h1 id="avg_rate">0</h1>
                                                 <div class="col"></div>
                                             </div>
                                             <div class="col">
                                                 <div class="row stars">
                                                     <img src="img/icons/star-solid.svg" alt="" width="20px" />
                                                 </div>
-                                                <div class="row">
-                                                    Averaged from 4 reviews
+                                                <div class="row" id="total_reviews">
+                                                    Averaged from 0 reviews
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="review">
-                                        3,7<img src="img/icons/star-solid.svg" alt="" width="15px" style="margin-top:-4px;" />
-                                        <h5>Leuk bedrijf waarbij er veel geleerd kan worden etc.</h5>
-                                        <div style="font-size: 13px; margin-top:-10px; margin-bottom: 10px;">Stagiare | Helmond | 1-1-2024 / 1-8-2024</div>
-                                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates deserunt dolorem reprehenderit cum dolore maiores totam. Nemo possimus provident cumque, perspiciatis aut voluptate, distinctio quos corporis aspernatur unde adipisci excepturi.</div>
-                                        <div class="companies-text-right col-text-small">
-                                            ${new Date().toLocaleDateString()}
-                                        </div>
-                                    </div>
+                                    
+									<!-- User reviews -->
+									<div id = "userReviewsContainer"></div>
+
                                 </div>
                             </div>
                         </div>
