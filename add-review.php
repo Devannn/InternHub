@@ -16,6 +16,7 @@ getAuthKey();
 
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/add-review.js"></script>
 
     <title>InternHub</title>
 </head>
@@ -30,7 +31,7 @@ getAuthKey();
                     <div class="card">
                         <div class="card-body">
                             <h3>Add Review</h3>
-                            <form class="form" role="form" action="messages.php">
+                            <form class="form" role="form">
                                 <div class="form-group">
                                     <input id="titleInput" placeholder="Title" class="form-control form-control-sm" type="text" required="">
                                 </div>
@@ -40,11 +41,13 @@ getAuthKey();
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
+											<label for="startDate">Start Date</label>
                                             <input id="startDate" placeholder="Start Date" class="form-control form-control-sm" type="date" required="">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
+											<label for="endDate">End Date</label>
                                             <input id="endDate" placeholder="End Date" class="form-control form-control-sm" type="date" required="">
                                         </div>
                                     </div>
@@ -60,9 +63,15 @@ getAuthKey();
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                                    <button type="submit" onclick="SaveReview(getParameterByName('i'))" class="btn btn-primary btn-block">Save Changes</button>
                                 </div>
                             </form>
+							<div id="errorMessage" style="display: none; color: red;">
+                                Incorrect data received.
+                            </div>
+                            <div id="APIerrorMessage" style="display: none; color: red;">
+                                An unexpected error occured! Try again later.
+                            </div>
                         </div>
                     </div>
                     <!-- Main Settings -->

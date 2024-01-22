@@ -56,3 +56,45 @@ function RelocateToMessages(){
         })
         .catch(error => console.error('Fetch error:', error));
 }
+
+function getInternshipOverview(company_id){
+	var authKey = GetAuthKey();
+    var apiUrl = APIaddress() + 'Internship/GetInternshipOverview?auth_key=' + encodeURIComponent(authKey) + '&company_id=' + company_id;
+    
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            var internshipContainer = document.getElementById('internshipContainer'); 
+
+            data.forEach(internship => {
+                var internshipCard = document.createElement('div');
+                internshipCard.className = 'col-6';
+                internshipCard.innerHTML = `
+                    <div class="card companies-card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col">
+									<h3>${internship.internship_title}</h3>
+									<span>${internship.internship_startdate} / ${internship.internship_enddate}</span>
+									<span>| Spots: ${internship.internship_spots}</span> <br>
+									<span>${internship.internship_content}</span>
+								</div>
+							</div>
+							<div class="py-2"></div>
+							${internship.internship_tags != "" ? 
+								`<div class="row flex-nowrap overflow-auto">
+									${internship.internship_tags.map(tag => `<div class="tag d-inline-block">${tag}</div>`).join('')}
+								</div>` : ''}
+							<div class="companies-text-right col-text-small">
+								${internship.internship_postdate}
+							</div>
+						</div>
+					</div>
+                `;
+
+                // Append the created card to the container
+                internshipContainer.appendChild(internshipCard);
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}

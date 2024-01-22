@@ -30,7 +30,7 @@ getAuthKey();
                     <div class="card">
                         <div class="card-body">
                             <h3>Add Assignment</h3>
-                            <form class="form" role="form" action="messages.php">
+                            <form class="form" role="form">
                                 <div class="form-group">
                                     <input id="titleInput" placeholder="Title" class="form-control form-control-sm" type="text" required="">
                                 </div>
