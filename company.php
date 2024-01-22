@@ -2,6 +2,7 @@
 include 'inc/checkAuthKey.php';
 getAuthKey();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +71,7 @@ getAuthKey();
                                 </li>
 
                                 <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="assigments-tab" data-bs-toggle="tab" data-bs-target="#four" type="button" role="tab" aria-controls="four" aria-selected="true">Assignments</a>
+                                    <a class="nav-link" id="assignments-tab-link" data-bs-toggle="tab" data-bs-target="#four" type="button" role="tab" aria-controls="four" aria-selected="true">Assignments</a>
                                 </li>
 
                                 <li class="nav-item" role="presentation">
@@ -173,34 +174,7 @@ getAuthKey();
                                                 <th scope="col"></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>HBO Graduation Assignment: Make a website for a pizza company</td>
-                                                <td>Laravel</td>
-                                                <td>
-                                                    <form action="assignment.php">
-                                                        <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>HBO Graduation Assignment: Make a website for a pizza company</td>
-                                                <td>React</td>
-                                                <td>
-                                                    <form action="assignment.php">
-                                                        <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>HBO Graduation Assignment: Make a website for a pizza company</td>
-                                                <td>Vue.JS</td>
-                                                <td>
-                                                    <form action="assignment.php">
-                                                        <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                        <tbody id="assignmentContainer">  
                                         </tbody>
                                     </table>
                                 </div>

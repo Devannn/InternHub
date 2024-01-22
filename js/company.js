@@ -70,7 +70,7 @@ function getInternshipOverview(company_id){
                 var internshipCard = document.createElement('div');
                 internshipCard.className = 'col-6';
                 internshipCard.innerHTML = `
-                    <div class="card companies-card">
+					<div style="cursor: pointer; text-decoration: none; color: black;" class="card companies-card" onclick="switchToAssignmentsTab(${company_id}, ${internship.internship_id})">
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
@@ -98,3 +98,43 @@ function getInternshipOverview(company_id){
         })
         .catch(error => console.error('Error fetching data:', error));
 }
+
+function switchToAssignmentsTab(company_id, internship_id) {
+	document.getElementById('assignments-tab-link').click();
+
+	//Update url without reloading
+	var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?i=' + company_id + '&ii=' + internship_id;
+    history.pushState({company_id: company_id, internship_id: internship_id}, null, newUrl);
+	getAssignmentOverview(getParameterByName('ii'));
+}
+
+function getAssignmentOverview(internship_id){
+	var authKey = GetAuthKey();
+    var apiUrl = APIaddress() + 'Assignment/GetAssignmentOverview?auth_key=' + encodeURIComponent(authKey) + '&internship_id=' + internship_id;
+    
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            var assignmentContainer = document.getElementById('assignmentContainer');
+            
+            assignmentContainer.innerHTML = "";
+
+            data.forEach(assignment => {
+                var assignmentRow = document.createElement('tr');
+                assignmentRow.innerHTML = `<tr>
+                    <td>${assignment.assignment_title}</td>
+                    <td>${assignment.assignment_tags.join(', ')}</td>
+                    <td>
+                        <a href="assignment.php?i=${assignment.assignment_id}">
+                            <input type="submit" class="btn btn-outline-primary btn-assignment-link" value="Details" />
+                        </a>
+                    </td></tr>
+                `;
+
+                assignmentContainer.appendChild(assignmentRow);
+            });
+        })
+        .catch(error => console.error('Error fetching assignment details:', error));
+}
+        
+	
