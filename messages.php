@@ -1,5 +1,6 @@
 <?php
 include 'inc/checkAuthKey.php';
+getAuthKey();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,7 +110,7 @@ include 'inc/checkAuthKey.php';
                         
 						<div id="messagebox">
 							<div class="card-header">
-								<span id="receiver">No Display Name</span>
+								<h5 id="receiver">No Display Name</h5>
 							</div>
 							<div class="card-body">
 								<div id="chat-container"></div>
@@ -138,7 +139,7 @@ include 'inc/checkAuthKey.php';
 		const authKey = GetAuthKey();
 		const receiverName = await getDisplayNameFromUserID(authKey, getParameterByName('i'));
 		
-		if (receiverName === undefined || receiverName === null || receiverName === "") {
+		if (receiverName === undefined || receiverName === null || receiverName === "" || !receiverName) {
 			receiverName = "No Display Name";
 		}
 
@@ -173,7 +174,9 @@ include 'inc/checkAuthKey.php';
     });
 
     socket.addEventListener("message", (event) => {
-	console.log("Received from server: ", event.data);
+		getMessages();
+		console.log("Received from server: ", event.data);
+		
         try {
 			const data = JSON.parse(event.data);
 			
