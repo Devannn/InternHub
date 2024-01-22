@@ -6,7 +6,7 @@ function getAuthKey()
 
     $rawKey = trim($authKey);
 
-    if (!empty($rawKey)) {
+    if (empty($rawKey)) {
         header("Location: index.php");
         exit;
     }
