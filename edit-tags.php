@@ -1,5 +1,6 @@
 <?php
 include 'inc/checkAuthKey.php';
+getAuthKey();
 ?>
 <!DOCTYPE html>
 <html lang="en">
