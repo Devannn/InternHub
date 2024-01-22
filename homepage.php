@@ -83,39 +83,42 @@ getAuthKey();
         // JSON data from the API
         var jsonData = [{
             "Company_ID": 1,
-            "Company_Name": "Company 1",
+            "Company_Name": "Shell",
             "Company_Province": "Noord-Brabant",
             "Company_Rating": 0.0,
             "Company_ReviewCount": 0,
             "Company_LogoFilePath": null,
             "Company_Categories": [{
                 "Category_ID": 1,
-                "Category_Name": "test1"
+                "Category_Name": "Infrastructure"
             }],
             "Company_Tags": [{
                 "Tag_ID": 1,
-                "Tag_Name": "test1"
+                "Tag_Name": "Netwerkbeheer"
             }, {
                 "Tag_ID": 2,
-                "Tag_Name": "test2"
+                "Tag_Name": "Cloud"
             }]
         }, {
-            "Company_ID": 3,
-            "Company_Name": "Test company 3",
+            "Company_ID": 2,
+            "Company_Name": "Rijksoverheid",
             "Company_Province": "Noord-Brabant",
-            "Company_Rating": 0.0,
-            "Company_ReviewCount": 0,
+            "Company_Rating": 4.5,
+            "Company_ReviewCount": 1,
             "Company_LogoFilePath": null,
             "Company_Categories": [{
                 "Category_ID": 1,
-                "Category_Name": "test1"
+                "Category_Name": "Media Design"
             }],
             "Company_Tags": [{
                 "Tag_ID": 1,
-                "Tag_Name": "test1"
-            }, {
+                "Tag_Name": "Javascript"
+            },{
                 "Tag_ID": 2,
-                "Tag_Name": "test2"
+                "Tag_Name": "HTML"
+            }, {
+                "Tag_ID": 3,
+                "Tag_Name": "CSS"
             }]
         }];
 

@@ -3,7 +3,7 @@ function createCompanyHTML(company) {
     return `
     <div class="card companies-card">
         <div class="card-body">
-            <a href="company.php" class="company-link">
+            <a href="company.php?company_id=${company.Company_ID}" class="company-link">
                 <div class="row">
                     <div class="col-2">
                         <div class="companies-image">
